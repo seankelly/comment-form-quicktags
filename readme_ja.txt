@@ -1,7 +1,7 @@
 === Comment Form Quicktags ===
 Contributors: Regen
 Tags: quicktags, comments
-Requires at least: 2.5
+Requires at least: 2.6
 Tested up to: 2.7
 Stable tag: 1.0
 

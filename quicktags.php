@@ -1,3 +1,11 @@
+<?php
+if (file_exists('../../../wp-load.php')){
+	require_once '../../../wp-load.php';
+} else {
+	require_once '../../../wp-config.php';
+}
+header("Content-Type: text/javascript");
+?>
 function edButton(id, display, tagStart, tagEnd, access, open) {
 	this.id = id;				// used to name the toolbar button
 	this.display = display;		// label on button
@@ -30,6 +38,9 @@ function edShowButton(button, i) {
 			break;
 		case 'ed_link':
 			document.write('<input type="button" id="' + button.id + '" ' + accesskey + ' class="ed_button" onclick="edInsertLink(edCanvas, ' + i + ');" value="' + button.display + '" />');
+			break;
+		case 'ed_close':
+			document.write('<input type="button" id="' + button.id + '" ' + accesskey + ' class="ed_button" onclick="edCloseAllTags();" value="' + button.display + '" />');
 			break;
 		default:
 			document.write('<input type="button" id="' + button.id + '" ' + accesskey + ' class="ed_button" onclick="edInsertTag(edCanvas, ' + i + ');" value="' + button.display + '"  />');
@@ -106,10 +117,6 @@ function edToolbar() {
 	for (i = 0; i < extendedStart; i++) {
 		edShowButton(edButtons[i], i);
 	}
-	document.write(
-
-		'<input type="button" id="ed_close" class="ed_button" onclick="edCloseAllTags();" value="Close Tags" />'
-		);
 
 	for (i = extendedStart; i < edButtons.length; i++) {
 		edShowButton(edButtons[i], i);
@@ -252,48 +259,8 @@ var edButtons = new Array();
 var edLinks = new Array();
 var edOpenTags = new Array();
 
-edButtons[edButtons.length] = 
-new edButton('ed_strong'
-,'b'
-,'<strong>'
-,'</strong>'
-,'b'
-);
-
-
-edButtons[edButtons.length] = 
-new edButton('ed_em'
-,'i'
-,'<em>'
-,'</em>'
-,'i'
-);
-
-
-edButtons[edButtons.length] = 
-new edButton('ed_link'
-,'link'
-,''
-,'</a>'
-,'a'
-);
-
-
-edButtons[edButtons.length] = 
-new edButton('ed_block'
-,'b-quote'
-,'<blockquote>'
-,'</blockquote>'
-,'q'
-);
-
-
-edButtons[edButtons.length] = 
-new edButton('ed_code'
-,'code'
-,'<code>'
-,'</code>'
-,'c'
-);
+<?php 
+$comment_form_quicktags->print_tag_js();
+?>
 
 var extendedStart = edButtons.length;

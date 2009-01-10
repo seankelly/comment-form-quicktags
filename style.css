@@ -5,7 +5,7 @@
 	border-color: #aaa;
 	background: #ddd;
 }
-#ed_toolbar input {
+#ed_toolbar input, #ed_toolbar span{
 	background: #fff url("../../../wp-admin/images/fade-butt.png") repeat-x 0 -2px;
 	border-color: #C3C3C3;
 	margin: 3px 1px 4px;
@@ -17,21 +17,22 @@
 	width: auto;
 	padding: 2px 4px;
 	font-size: 12px;
+	text-align: center;
 	/*-moz-border-radius: 3px;
 	-khtml-border-radius: 3px;
-	-webkit-border-radius: 3px;*/
-	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;*/
 }
 #ed_link {
-	text-decoration: underline;
-	color: #00f;
+	text-decoration: underline !important;
+	color: #00f !important;
 }
 #ed_del {
-	text-decoration: line-through;
+	text-decoration: line-through !important;
 }
 #ed_em {
-	font-style: italic;
+	font-style: italic !important;
 }
 #ed_strong {
-	font-weight: bold;
+	font-weight: bold !important;
 }
