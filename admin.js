@@ -1,6 +1,6 @@
 document.observe('dom:loaded', function() {
 	updateFunc = function(event) {
-		id = Event.element(event).identify().substr(3);
+		var id = Event.element(event).identify().substr(3);
 		$('edit_id').value = id;
 		$('edit_display').value = buttons[id].display ? buttons[id].display : '';
 		$('edit_start').value = buttons[id].start ? buttons[id].start : '';
@@ -19,18 +19,18 @@ document.observe('dom:loaded', function() {
 	beSortable();
 	
 	toggleBtn = function() {
-		$A($$('#att input[type=button]')).invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
+		$$('#att input[type=button]').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
 		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
 	}
 	toggleBtn();
 	
-	$A($$('#ed_toolbar span')).invoke('observe', 'click', updateFunc);
+	$$('#ed_toolbar span').invoke('observe', 'click', updateFunc);
 	
-	$A($('edit_id', 'edit_display')).invoke('observe', 'change', toggleBtn);
+	$('edit_id', 'edit_display').invoke('observe', 'change', toggleBtn);
 	
 	$('save_btn').observe('click', function() {
-		id = $F('edit_id');
-		display = $F('edit_display');
+		var id = $F('edit_id');
+		var display = $F('edit_display');
 		
 		if (id && display) {
 			isExists = buttons[id] ? true : false;
@@ -43,8 +43,9 @@ document.observe('dom:loaded', function() {
 			if (isExists) {
 				$('ed_'+id).update(display);
 			} else {
-				new_btn = new Element('span', {class: 'ed_button', 'id': 'ed_'+id}).update(display).observe('click', updateFunc);
+				var new_btn = new Element('span', {'class': 'ed_button', 'id': 'ed_'+id}).update(display).hide().observe('click', updateFunc);
 				$('ed_toolbar').appendChild(new_btn);
+				new_btn.appear({duration: 0.6});
 				beSortable();
 			}
 		}
@@ -53,7 +54,7 @@ document.observe('dom:loaded', function() {
 	$('del_btn').observe('click', function() {
 		if ($H(buttons).keys().length == 1) return;
 		
-		id = $F('edit_id');
+		var id = $F('edit_id');
 		
 		if (id && buttons[id]) {
 			delete buttons[id];
@@ -61,7 +62,7 @@ document.observe('dom:loaded', function() {
 				duration: 0.6,
 				afterFinishInternal: function(effect){
 					effect.element.remove();
-					$A($$('#att input[type=text]')).invoke('clear');
+					$$('#att input[type=text]').invoke('clear');
 					toggleBtn();
 					beSortable();
 				}
