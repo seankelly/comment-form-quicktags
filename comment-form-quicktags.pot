@@ -1,0 +1,118 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Comment Form Quicktags\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-01-10 17:24+0900\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: \n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+
+#: /comment-form-quicktags.php:109
+#: /comment-form-quicktags.php:224
+msgid "Comment Form Quicktags Options"
+msgstr ""
+
+#: /comment-form-quicktags.php:109
+msgid "Comment Form Quicktags"
+msgstr ""
+
+#: /comment-form-quicktags.php:120
+msgid "Are you sure?"
+msgstr ""
+
+#: /comment-form-quicktags.php:155
+msgid "Settings"
+msgstr ""
+
+#: /comment-form-quicktags.php:212
+msgid "Options saved."
+msgstr ""
+
+#: /comment-form-quicktags.php:217
+msgid "Options removed."
+msgstr ""
+
+#: /comment-form-quicktags.php:225
+msgid "Javascript is needed! "
+msgstr ""
+
+#: /comment-form-quicktags.php:227
+msgid "Tag Options"
+msgstr ""
+
+#: /comment-form-quicktags.php:229
+msgid "Click a tag which you want to edit or input ID which you want to add."
+msgstr ""
+
+#: /comment-form-quicktags.php:230
+msgid "Edit other field."
+msgstr ""
+
+#: /comment-form-quicktags.php:231
+msgid "Click Edit/Add button."
+msgstr ""
+
+#: /comment-form-quicktags.php:232
+msgid "Sort tags by dragging."
+msgstr ""
+
+#: /comment-form-quicktags.php:233
+msgid "After that, click Update Tags button to save."
+msgstr ""
+
+#: /comment-form-quicktags.php:235
+#, php-format
+msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
+msgstr ""
+
+#: /comment-form-quicktags.php:236
+msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
+msgstr ""
+
+#: /comment-form-quicktags.php:252
+msgid "ID<span>*</span>"
+msgstr ""
+
+#: /comment-form-quicktags.php:255
+msgid "Display<span>*</span>"
+msgstr ""
+
+#: /comment-form-quicktags.php:258
+msgid "Start tag"
+msgstr ""
+
+#: /comment-form-quicktags.php:261
+msgid "End tag"
+msgstr ""
+
+#: /comment-form-quicktags.php:264
+msgid "Access key"
+msgstr ""
+
+#: /comment-form-quicktags.php:269
+msgid "Edit/Add"
+msgstr ""
+
+#: /comment-form-quicktags.php:270
+msgid "Delete"
+msgstr ""
+
+#: /comment-form-quicktags.php:279
+msgid "Update Tags"
+msgstr ""
+
+#: /comment-form-quicktags.php:284
+#: /comment-form-quicktags.php:289
+msgid "Remove options"
+msgstr ""
+
+#: /comment-form-quicktags.php:285
+msgid "You can remove the above options from the database. All the settings return to default."
+msgstr ""
+

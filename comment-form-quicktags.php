@@ -26,11 +26,11 @@ class CommentFormQuicktags {
 		$this->option_hook = 'cfq_option_page';
 		if (defined('WP_PLUGIN_URL')) {
 			$this->plugin_url = WP_PLUGIN_URL . '/' . $this->plugin_name;
-			load_plugin_textdomain($this->domain, str_replace(ABSPATH, '', WP_PLUGIN_DIR) . '/' . $this->plugin_name);
 		} else {
 			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/'.$this->plugin_name;
-			load_plugin_textdomain($this->domain, PLUGINDIR . '/' . $this->plugin_name);
 		}
+		
+		load_plugin_textdomain($this->domain, PLUGINDIR . '/' . $this->plugin_name);
 		
 		$this->get_option();
 		$this->set_hooks();
