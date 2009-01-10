@@ -11,6 +11,10 @@ This plugin inserts a quicktag toolbar on the comment form.
 
 This plugin inserts quicktags of the admin page to the upper part of textarea of the comment form.
 
+= Features =
+
+*   You can edit tags in the admin page.
+
 == Installation ==
 
 1. Upload the extracted plugin folder and contained files to your /wp-content/plugins/ directory
@@ -20,3 +24,4 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 == Screenshots ==
 
 1. The comment form
+1. The admin page
