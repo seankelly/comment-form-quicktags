@@ -20,6 +20,7 @@ document.observe('dom:loaded', function() {
 	
 	toggleBtn = function() {
 		$A($$('#att input[type=button]')).invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
+		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
 	}
 	toggleBtn();
 	
@@ -61,6 +62,7 @@ document.observe('dom:loaded', function() {
 				afterFinishInternal: function(effect){
 					effect.element.remove();
 					$A($$('#att input[type=text]')).invoke('clear');
+					toggleBtn();
 					beSortable();
 				}
 			});
