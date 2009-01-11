@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-10 17:24+0900\n"
+"POT-Creation-Date: 2009-01-11 23:49+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Regen <g(DOT)regen100(AT)gmail(DOT)com>\n"
 "Language-Team: \n"
@@ -104,16 +104,20 @@ msgstr "編集/追加"
 msgid "Delete"
 msgstr "削除"
 
-#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:279
+#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:271
+msgid "Clear fields"
+msgstr "項目をクリア"
+
+#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:280
 msgid "Update Tags"
 msgstr "タグを更新"
 
-#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:284
-#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:289
+#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:285
+#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:290
 msgid "Remove options"
 msgstr "オプションを削除"
 
-#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:285
+#: C:\repository\comment-form-quicktags/comment-form-quicktags.php:286
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr "上のオプションをデータベースから削除できます。全ての設定はデフォルトに戻ります。"
 

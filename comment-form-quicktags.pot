@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-10 17:24+0900\n"
+"POT-Creation-Date: 2009-01-11 23:49+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -12,6 +12,7 @@ msgstr ""
 "X-Poedit-Language: \n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: \n"
 
 #: /comment-form-quicktags.php:109
 #: /comment-form-quicktags.php:224
@@ -103,16 +104,20 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: /comment-form-quicktags.php:279
+#: /comment-form-quicktags.php:271
+msgid "Clear fields"
+msgstr ""
+
+#: /comment-form-quicktags.php:280
 msgid "Update Tags"
 msgstr ""
 
-#: /comment-form-quicktags.php:284
-#: /comment-form-quicktags.php:289
+#: /comment-form-quicktags.php:285
+#: /comment-form-quicktags.php:290
 msgid "Remove options"
 msgstr ""
 
-#: /comment-form-quicktags.php:285
+#: /comment-form-quicktags.php:286
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr ""
 
