@@ -1,4 +1,9 @@
 document.observe('dom:loaded', function() {
+	toggleBtn = function() {
+		$$('#att input[type=button]').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
+		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
+	}
+	
 	updateFunc = function(event) {
 		var id = Event.element(event).identify().substr(3);
 		$('edit_id').value = id;
@@ -15,14 +20,9 @@ document.observe('dom:loaded', function() {
 			overlap: 'horizontal',
 			constraint: 'horizontal'
 		});
+		toggleBtn();
 	}
 	beSortable();
-	
-	toggleBtn = function() {
-		$$('#att input[type=button]').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
-		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
-	}
-	toggleBtn();
 	
 	$$('#ed_toolbar span').invoke('observe', 'click', updateFunc);
 	
@@ -63,11 +63,15 @@ document.observe('dom:loaded', function() {
 				afterFinishInternal: function(effect){
 					effect.element.remove();
 					$$('#att input[type=text]').invoke('clear');
-					toggleBtn();
 					beSortable();
 				}
 			});
 		}
+	});
+	
+	$('clear_btn').observe('click', function(){
+		$$('#att input[type=text]').invoke('clear');
+		toggleBtn();
 	});
 	
 	$('sform').observe('submit', function(event){

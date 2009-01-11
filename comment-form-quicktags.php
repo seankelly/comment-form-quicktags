@@ -268,6 +268,7 @@ edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo
 	<p>
 		<input type="button" class="button" value="<?php _e('Edit/Add', $this->domain) ?>" id="save_btn" />
 		<input type="button" class="button" value="<?php _e('Delete', $this->domain) ?>" id="del_btn" />
+		<input type="button" class="button" value="<?php _e('Clear fields', $this->domain) ?>" id="clear_btn" />
 	</p>
 </div>
 
