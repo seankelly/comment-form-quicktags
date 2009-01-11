@@ -19,7 +19,7 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 
 1. Upload the extracted plugin folder and contained files to your /wp-content/plugins/ directory
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Navigate to Settings -> Script Compressor
+3. Navigate to Settings -> Comment Form Quicktags
 
 == Screenshots ==
 

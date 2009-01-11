@@ -19,7 +19,7 @@ Stable tag: 1.1.1
 
 1. /wp-content/plugins/ に解凍したプラグインをアップロードしてください
 2. プラグインメニューから有効化してください
-3. 設定 -> Script Compressor から設定してください
+3. 設定 -> Comment Form Quicktags から設定してください
 
 == スクリーンショット ==
 
