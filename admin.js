@@ -1,10 +1,10 @@
 document.observe('dom:loaded', function() {
-	toggleBtn = function() {
+	function toggleBtn() {
 		$$('#att input[type=button]').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
 		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
 	}
 	
-	updateFunc = function(event) {
+	function updateFunc(event) {
 		var id = Event.element(event).identify().substr(3);
 		$('edit_id').value = id;
 		$('edit_display').value = buttons[id].display ? buttons[id].display : '';
@@ -12,9 +12,9 @@ document.observe('dom:loaded', function() {
 		$('edit_end').value = buttons[id].end ? buttons[id].end : '';
 		$('edit_access').value = buttons[id].access ? buttons[id].access : '';
 		toggleBtn();
-	};
+	}
 	
-	beSortable = function() {
+	function beSortable() {
 		Sortable.create('ed_toolbar', {
 			tag: 'span',
 			overlap: 'horizontal',
@@ -33,7 +33,7 @@ document.observe('dom:loaded', function() {
 		var display = $F('edit_display');
 		
 		if (id && display) {
-			isExists = buttons[id] ? true : false;
+			var isExists = buttons[id] ? true : false;
 			buttons[id] = {};
 			buttons[id].display = display;
 			buttons[id].start = $F('edit_start');
@@ -74,7 +74,7 @@ document.observe('dom:loaded', function() {
 		toggleBtn();
 	});
 	
-	$('sform').observe('submit', function(event){
+	$('sform').observe('submit', function(){
 		$('sort').value = Sortable.serialize('ed_toolbar', {tag: 'span'});
 		$('tags').value = $H(buttons).toJSON();
 	});
@@ -84,5 +84,6 @@ document.observe('dom:loaded', function() {
 			Event.stop(event);
 			return false;
 		}
+        return true;
 	});
 });
