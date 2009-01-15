@@ -8,16 +8,64 @@ Author: Regen
 Author URI: http://rp.exadge.com
 */
 
+/**
+ * @author Regen
+ * @copyright Copyright (C) 2009 Regen
+ * @license http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @link http://rp.exadge.com/2009/01/08/comment-form-quicktags/ Comment Form Quicktags
+ * @access public
+ */
+
+/**
+ * Comment Form Quicktags main class.
+ */
 class CommentFormQuicktags {
 
+    /**
+     * Gettext domain.
+     * @var string
+     */
 	var $domain;
+
+    /**
+     * Plugin name.
+     * @var string
+     */
 	var $plugin_name;
+
+    /**
+     * Plugin path.
+     * @var string
+     */
 	var $plugin_dir;
+
+    /**
+     * Plugin URL.
+     * @var string
+     */
 	var $plugin_url;
+
+    /**
+     * Option ID.
+     * @var string
+     */
 	var $option_name;
+
+    /**
+     * Option data.
+     * @var array
+     */
 	var $options;
+
+    /**
+     * Option menu ID.
+     * @var string
+     */
 	var $option_hook;
 
+    /**
+     * Initialize CommentFormQuicktags.
+     */
 	function CommentFormQuicktags() {
 		$this->domain = 'comment-form-quicktags';
 		$this->plugin_name = 'comment-form-quicktags';
@@ -36,6 +84,9 @@ class CommentFormQuicktags {
 		$this->set_hooks();
 	}
 
+    /**
+     * Get plugin options.
+     */
 	function get_option() {
 		$this->options = (array)get_option($this->option_name);
 		
@@ -88,21 +139,34 @@ class CommentFormQuicktags {
 		if (!isset($this->options['sort'])) $this->options['sort'] = array_keys($this->options['tags']);
 	}
 
+    /**
+     * Update plugin options.
+     */
 	function update_option() {
 		update_option($this->option_name, $this->options);
 	}
 
+    /**
+     * Delete plugin options.
+     */
 	function delete_option() {
 		$this->options = array();
 		delete_option($this->option_name);
 	}
 
+    /**
+     * Set WP hooks.
+     */
 	function set_hooks() {
 		add_action('wp_head', array(&$this, 'add_head'));
 		add_action('comments_template', array(&$this, 'detect_start'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 	}
 
+    /**
+     * Set WP hooks for admin.
+     * @global string $wp_version
+     */
 	function set_admin_hooks() {
 		global $wp_version;
 		
@@ -114,6 +178,9 @@ class CommentFormQuicktags {
 		add_action('admin_print_styles-' . $hook_id, array(&$this, 'add_admin_styles'));
 	}
 
+    /**
+     * Add scripts to admin header.
+     */
 	function add_admin_scripts() {
 		wp_enqueue_script('cfq-admin', $this->plugin_dir . '/admin.js',  array('scriptaculous-dragdrop', 'scriptaculous-effects'));
 		wp_localize_script('cfq-admin', 'cfqadminL10n', array(
@@ -121,6 +188,9 @@ class CommentFormQuicktags {
 		));
 	}
 
+    /**
+     * Add styles to admin header.
+     */
 	function add_admin_styles() {
 		?>
 
@@ -150,19 +220,31 @@ code.tags {
 		<?php
 	}
 
+    /**
+     * Add settings link to pluguin menu.
+     * @param array $links
+     * @param string $file
+     * @return array
+     */
 	function add_action_links($links, $file){
 		if ($file == $this->plugin_name . '/' . basename(__FILE__)) {
-			$settings_link = '<a href="options-general.php?page=cfq_option_page">' . __('Settings', $this->domain) . '</a>';
+			$settings_link = '<a href="options-general.php?page=' . $this->option_hook . '">' . __('Settings', $this->domain) . '</a>';
 			$links = array_merge(array($settings_link), $links);
 		}
 		return $links;
 	}
 
+    /**
+     * Add header data.
+     */
 	function add_head() {
 		echo '<script src="' . $this->plugin_url . '/quicktags.php' . '" type="text/javascript"></script>';
 		echo '<link rel="stylesheet" href="' . $this->plugin_url . '/style.css" type="text/css" media="screen" />';
 	}
 
+    /**
+     * Start to detect <textarea>.
+     */
 	function detect_start() {
 		ob_start(array(&$this, 'add_tags'));
 		$this->ended = false;
@@ -170,6 +252,9 @@ code.tags {
 		add_action('wp_footer', array(&$this, 'detect_end'));
 	}
 
+    /**
+     * End to detect <textarea>.
+     */
 	function detect_end() {
 		if (!$this->ended) {
 			$this->ended = true;
@@ -177,6 +262,11 @@ code.tags {
 		}
 	}
 
+    /**
+     * Add quicktags to comment form.
+     * @param string $content
+     * @return string
+     */
 	function add_tags($content) {
 		$toolbar = '<script type="text/javascript">edToolbar();</script>';
 		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\2\');</script>';
@@ -189,6 +279,9 @@ code.tags {
 		return $content;
 	}
 
+    /**
+     * Print quicktag script.
+     */
 	function print_tag_js() {
 		foreach($this->options['sort'] as $tag):
 			$sets = $this->options['tags'][$tag];
@@ -200,6 +293,9 @@ edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo
 		endforeach;
 	}
 
+    /**
+     * Admin page function.
+     */
 	function options_page() {
 		include 'json.php';
 		if (isset($_POST['action'])) {
@@ -298,4 +394,7 @@ edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo
 
 }
 
+/**
+ * CommentFormQuicktags class instance.
+ */
 $comment_form_quicktags = &new CommentFormQuicktags();
