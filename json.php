@@ -56,6 +56,8 @@
  * @link        http://pear.php.net/pepr/pepr-proposal-show.php?id=198
  */
 
+if (!class_exists('Services_JSON')) { // Existence check start
+
 /**
  * Marker constant for Services_JSON::decode(), used to flag stack state
  */
@@ -802,7 +804,8 @@ if (class_exists('PEAR_Error')) {
     }
 
 }
-    
+}// Existence check end
+
 // Future-friendly json_encode
 if( !function_exists('json_encode') ) {
     function json_encode($data) {
