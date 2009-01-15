@@ -813,8 +813,8 @@ if( !function_exists('json_encode') ) {
 
 // Future-friendly json_decode
 if( !function_exists('json_decode') ) {
-    function json_decode($data) {
-        $json = new Services_JSON();
+    function json_decode($data, $assoc = false) {
+        $json = new Services_JSON($assoc ? SERVICES_JSON_LOOSE_TYPE : 0);
         return( $json->decode($data) );
     }
 }
