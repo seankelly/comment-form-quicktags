@@ -332,7 +332,9 @@ edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo
 <p><?php _e('<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close.', $this->domain) ?></p>
 
 <script type="text/javascript">
-	buttons = <?php echo json_encode($this->options['tags']); ?>;
+//<![CDATA[
+	var buttons = <?php echo json_encode($this->options['tags']); ?>;
+//]]>
 </script>
 
 <div id="ed_toolbar">
