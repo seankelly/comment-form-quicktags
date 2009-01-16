@@ -84,6 +84,6 @@ document.observe('dom:loaded', function() {
 			Event.stop(event);
 			return false;
 		}
-        return true;
+		return true;
 	});
 });
