@@ -165,17 +165,13 @@ class CommentFormQuicktags {
 
 	/**
 	 * Set WP hooks for admin.
-	 * @global string $wp_version
 	 */
 	function set_admin_hooks() {
-		global $wp_version;
-		
 		$page = add_options_page(__('Comment Form Quicktags Options', $this->domain), __('Comment Form Quicktags', $this->domain), 8, $this->option_hook, array(&$this, 'options_page'));
-		$hook_id = version_compare($wp_version, '2.7', '>=') ? $page : $this->option_hook;
 		
 		add_filter('plugin_action_links', array(&$this, 'add_action_links'), 10, 2);
-		add_action('admin_print_scripts-' . $hook_id, array(&$this, 'add_admin_scripts'));
-		add_action('admin_print_styles-' . $hook_id, array(&$this, 'add_admin_styles'));
+		add_action('admin_print_scripts-' . $page, array(&$this, 'add_admin_scripts'));
+		add_action('admin_print_styles-' . $page, array(&$this, 'add_admin_styles'));
 	}
 
 	/**
