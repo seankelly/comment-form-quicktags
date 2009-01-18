@@ -1,7 +1,11 @@
 document.observe('dom:loaded', function() {
 	function toggleBtn() {
-		$$('#att input[type=button]').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
+		$('save_btn', 'del_btn').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
 		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
+		
+		var i = false;
+		$$('#att input[type=text]').each(function(element) {i = i || $F(element)});
+		if (i) $('clear_btn').enable(); else $('clear_btn').disable();
 	}
 	
 	function updateFunc(event) {
@@ -25,8 +29,7 @@ document.observe('dom:loaded', function() {
 	beSortable();
 	
 	$$('#ed_toolbar span').invoke('observe', 'click', updateFunc);
-	
-	$('edit_id', 'edit_display').invoke('observe', 'change', toggleBtn);
+	new Form.Observer('att', 1, toggleBtn);
 	
 	$('save_btn').observe('click', function() {
 		var id = $F('edit_id');
