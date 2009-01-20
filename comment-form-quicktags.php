@@ -134,9 +134,11 @@ class CommentFormQuicktags {
 					'end' => '',
 					'access' => ''
 				)
-			)
+			),
+			'modified' => filemtime(__FILE__)
 		);
 		if (!isset($this->options['sort'])) $this->options['sort'] = array_keys($this->options['tags']);
+		if ($this->options['modified'] < filemtime(__FILE__)) $this->options['modified'] = filemtime(__FILE__);
 	}
 
 	/**
@@ -234,7 +236,7 @@ code.tags {
 	 * Add header data.
 	 */
 	function add_head() {
-		echo '<script src="' . $this->plugin_url . '/quicktags.php' . '" type="text/javascript"></script>';
+		echo '<script src="' . $this->plugin_url . '/quicktags.php?ver=' . date('Ymd', $this->options['modified']) . '" type="text/javascript"></script>';
 		echo '<link rel="stylesheet" href="' . $this->plugin_url . '/style.css" type="text/css" media="screen" />';
 	}
 
@@ -279,14 +281,17 @@ code.tags {
 	 * Print quicktag script.
 	 */
 	function print_tag_js() {
-		foreach($this->options['sort'] as $tag):
+		foreach($this->options['sort'] as $tag) {
 			$sets = $this->options['tags'][$tag];
-		 	?>
-
-edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo $sets['display']; ?>', '<?php echo $sets['start']; ?>', '<?php echo $sets['end']; ?>', '<?php echo $sets['access']; ?>');
-
-			<?php
-		endforeach;
+			printf(
+				'edButtons[edButtons.length] = new edButton(\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');',
+				'ed_' . $tag,
+				$sets['display'],
+				$sets['start'],
+				$sets['end'],
+				$sets['access']
+			);
+		}
 	}
 
 	/**
@@ -300,6 +305,7 @@ edButtons[edButtons.length] = new edButton('ed_<?php echo $tag; ?>', '<?php echo
 					parse_str($_POST['sort'], $buf);
 					if (!empty($this->options['sort'])) $this->options['sort'] = $buf['ed_toolbar'];
 					if (!empty($this->options['tags'])) $this->options['tags'] = json_decode(stripslashes($_POST['tags']), true);
+					$this->options['modified'] = time();
 					$this->update_option();
 					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
 					break;

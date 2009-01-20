@@ -4,7 +4,17 @@ if (file_exists('../../../wp-load.php')){
 } else {
 	require_once '../../../wp-config.php';
 }
-header("Content-Type: text/javascript");
+
+$last_modified = $comment_form_quicktags->options['modified'];
+header('Last-Modified: ' . gmdate('D, d M Y H:i:s T', $last_modified));
+header('Cache-Control: must-revalidate');
+header('Content-Type: text/javascript');
+if (isset($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+	if ($last_modified <= strtotime($_SERVER['HTTP_IF_MODIFIED_SINCE'])) {
+		header('HTTP/1.1 304 Not Modified');
+		exit;
+	}
+}
 ?>
 function edButton(id, display, tagStart, tagEnd, access, open) {
 	this.id = id;				// used to name the toolbar button
