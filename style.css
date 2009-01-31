@@ -1,11 +1,11 @@
 * html #ed_toolbar input, *:first-child+html #ed_toolbar input {
 	overflow: visible;
 }
-#ed_toolbar input:hover {
+div#ed_toolbar input:hover {
 	border-color: #aaa;
 	background: #ddd;
 }
-#ed_toolbar input, #ed_toolbar span{
+div#ed_toolbar input, #ed_toolbar span{
 	background: #fff url("../../../wp-admin/images/fade-butt.png") repeat-x 0 -2px;
 	border-color: #C3C3C3;
 	margin: 3px 1px 4px;
