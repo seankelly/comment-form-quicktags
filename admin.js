@@ -29,7 +29,7 @@ document.observe('dom:loaded', function() {
 	beSortable();
 	
 	$$('#ed_toolbar span').invoke('observe', 'click', updateFunc);
-	new Form.Observer('att', 1, toggleBtn);
+	new Form.Observer('att', 0.5, toggleBtn);
 	
 	$('save_btn').observe('click', function() {
 		var id = $F('edit_id');
