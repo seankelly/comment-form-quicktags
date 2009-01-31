@@ -3,7 +3,7 @@ Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
 Tested up to: 2.7
-Stable tag: 1.1.4
+Stable tag: 1.1.5
 
 このプラグインはクイックタグをコメントフォームに追加します。
 
