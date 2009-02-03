@@ -1,0 +1,27 @@
+=== Comment Form Quicktags ===
+Sviluppatore: Regen
+Tags: quicktags, comments
+Versione minima WP: 2.6
+Compatibile sino alla: 2.7
+Versione stabile: 1.1.5
+
+Questo plugin inserisce una barra di pulsanti quicktag nel modulo dei commenti.
+
+== Descrizione ==
+
+Questo plugin inserisce alcuni quicktags nella parte superiore dell'area di testo del modulo dei commenti.
+
+= Opzioni =
+
+*   Possibilità di modificare i tag (via pagina di amministrazione).
+
+== Installazione ==
+
+1. Scaricare e decomprimere il file zip del plugin ed allocarlo in /wp-content/plugins/
+2. Attivare il plugin nella sezione 'Plugin' di WordPress
+3. Opzioni in Impostazioni -> Comment Form Quicktags
+
+== Screenshots ==
+
+1. Modulo dei commenti
+1. Pagina di amministrazione
