@@ -2,7 +2,7 @@
 Sviluppatore: Regen
 Tags: quicktags, comments
 Versione minima WP: 2.6
-Compatibile sino alla: 2.7
+Compatibile sino alla: 2.7.1
 Versione stabile: 1.1.5
 
 Questo plugin inserisce una barra di pulsanti quicktag nel modulo dei commenti.
@@ -13,7 +13,7 @@ Questo plugin inserisce alcuni quicktags nella parte superiore dell'area di test
 
 = Opzioni =
 
-*   Possibilit‡ di modificare i tag (via pagina di amministrazione).
+*   PossibilitÅEdi modificare i tag (via pagina di amministrazione).
 
 == Installazione ==
 
