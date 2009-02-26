@@ -3,7 +3,7 @@
 Plugin Name: Comment Form Quicktags
 Plugin URI: http://rp.exadge.com/2009/01/08/comment-form-quicktags/
 Description: This plugin inserts a quicktag toolbar on the comment form.
-Version: 1.1.5
+Version: 1.1.6
 Author: Regen
 Author URI: http://rp.exadge.com
 */
