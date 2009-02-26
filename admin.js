@@ -1,6 +1,8 @@
 document.observe('dom:loaded', function() {
 	function toggleBtn() {
-		$('save_btn', 'del_btn').invoke(($F('edit_id') && $F('edit_display')) ? 'enable' : 'disable');
+		$('save_btn', 'del_btn').each(function(element) {
+			element.disabled = !($F('edit_id') && $F('edit_display'));
+		});
 		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
 		
 		var i = false;
