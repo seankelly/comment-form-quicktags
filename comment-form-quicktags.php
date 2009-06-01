@@ -161,7 +161,7 @@ class CommentFormQuicktags {
 	 */
 	function set_hooks() {
 		add_action('wp_head', array(&$this, 'add_head'));
-		add_action('comments_template', array(&$this, 'detect_start'));
+		add_filter('comments_template', array(&$this, 'detect_start'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 	}
 
@@ -243,11 +243,13 @@ code.tags {
 	/**
 	 * Start to detect <textarea>.
 	 */
-	function detect_start() {
+	function detect_start($file) {
 		ob_start(array(&$this, 'add_tags'));
 		$this->ended = false;
 		add_action('comment_form', array(&$this, 'detect_end'));
 		add_action('wp_footer', array(&$this, 'detect_end'));
+		
+		return $file;
 	}
 
 	/**
