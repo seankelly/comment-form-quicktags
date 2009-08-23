@@ -25,3 +25,34 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 
 1. The comment form
 1. The admin page
+
+== Changelog ==
+
+= 1.1.7 =
+* Fixed a bug that comments.php of child themes wasn't imported.
+
+= 1.1.6 =
+* Added Italian translations by Gianni Diurno.
+* Fixed a bug that the option form lost focus.
+
+= 1.1.5 =
+* Made the priority of styles higher.
+* Made scripts return "304 Not Modified".
+
+= 1.1.4 =
+* Fixed a bug that plugin files weren't loaded in WP2.6.
+
+= 1.1.3 =
+* Fixed a JSON library bug.
+
+= 1.1.2 =
+* Added Finnish lang files by C. Hellberg.
+
+= 1.1.1 =
+* Changed the document.
+
+= 1.1 =
+* Implemented the admin page.
+
+= 1.0 =
+* Initial release.
