@@ -84,6 +84,10 @@ document.observe('dom:loaded', function() {
 		$('tags').value = $H(buttons).toJSON();
 	});
 	
+	$('cap_check').observe('change', function(){
+		$$('#roles input[type=checkbox]').invoke(this.checked ? 'enable' : 'disable');
+	});
+	
 	$('rform').observe('submit', function(event){
 		if (!confirm(cfqadminL10n['removeConfirm'])) {
 			Event.stop(event);

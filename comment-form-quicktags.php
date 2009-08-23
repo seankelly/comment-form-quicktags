@@ -64,6 +64,12 @@ class CommentFormQuicktags {
 	var $option_hook;
 
 	/**
+	 * Capability name.
+	 * @var string
+	 */
+	var $cap;
+
+	/**
 	 * Initialize CommentFormQuicktags.
 	 */
 	function CommentFormQuicktags() {
@@ -72,6 +78,7 @@ class CommentFormQuicktags {
 		$this->plugin_dir = '/' . PLUGINDIR . '/' . $this->plugin_name;
 		$this->option_name = $this->plugin_name . '-option';
 		$this->option_hook = 'cfq_option_page';
+		$this->cap = 'comment_form_quicktags';
 		if (defined('WP_PLUGIN_URL')) {
 			$this->plugin_url = WP_PLUGIN_URL . '/' . $this->plugin_name;
 		} else {
@@ -135,7 +142,8 @@ class CommentFormQuicktags {
 					'access' => ''
 				)
 			),
-			'modified' => filemtime(__FILE__)
+			'modified' => filemtime(__FILE__),
+			'cap_check' => false
 		);
 		if (!isset($this->options['sort'])) $this->options['sort'] = array_keys($this->options['tags']);
 		if ($this->options['modified'] < filemtime(__FILE__)) $this->options['modified'] = filemtime(__FILE__);
@@ -161,8 +169,8 @@ class CommentFormQuicktags {
 	 */
 	function set_hooks() {
 		add_action('wp_head', array(&$this, 'add_head'));
-		add_filter('comments_template', array(&$this, 'detect_start'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
+		add_filter('comments_template', array(&$this, 'detect_start'));
 	}
 
 	/**
@@ -244,10 +252,12 @@ code.tags {
 	 * Start to detect <textarea>.
 	 */
 	function detect_start($file) {
-		ob_start(array(&$this, 'add_tags'));
-		$this->ended = false;
-		add_action('comment_form', array(&$this, 'detect_end'));
-		add_action('wp_footer', array(&$this, 'detect_end'));
+		if (!$this->options['cap_check'] || ($this->options['cap_check'] && current_user_can($this->cap))) {
+			ob_start(array(&$this, 'add_tags'));
+			$this->ended = false;
+			add_action('comment_form', array(&$this, 'detect_end'));
+			add_action('wp_footer', array(&$this, 'detect_end'));
+		}
 		
 		return $file;
 	}
@@ -300,7 +310,9 @@ code.tags {
 	 * Admin page function.
 	 */
 	function options_page() {
+		global $wp_roles;
 		include 'json.php';
+		
 		if (isset($_POST['action'])) {
 			switch ($_POST['action']) {
 				case 'update':
@@ -311,9 +323,22 @@ code.tags {
 					$this->update_option();
 					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
 					break;
+				case 'rolelimit':
+					$this->options['cap_check'] = isset($_POST['cap_check']);
+					$this->update_option();
+					if ($this->options['cap_check']) {
+						foreach ($wp_roles->get_names() as $role => $name) {
+							$wp_roles->add_cap($role, $this->cap, in_array($role, $_POST['role']));
+						}
+					}
+					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
+					break;
 				case 'remove':
 					$this->delete_option();
 					$this->get_option();
+					foreach ($wp_roles->get_names() as $role => $name) {
+						$wp_roles->remove_cap($role, $this->cap);
+					}
 					echo '<div class="updated fade"><p><strong>' . __('Options removed.', $this->domain) . '</strong></p></div>';
 					break;
 			}
@@ -379,17 +404,38 @@ code.tags {
 		<input type="hidden" name="action" value="update" />
 		<input type="hidden" name="sort" id="sort" value="" />
 		<input type="hidden" name="tags" id="tags" value="" />
-		<input type="submit" class="button-primary" value="<?php _e('Update Tags', $this->domain) ?>" name="submit"/>
+		<input type="submit" class="button-primary" value="<?php _e('Update Tags', $this->domain) ?>" />
 	</p>
 </form>
 
+<h3><?php _e('Role limitation', $this->domain) ?></h3>
+<form id="rolelimit" method="post" action="?page=<?php echo $this->option_hook ?>">
+	<p>
+		<label><input type="checkbox" id="cap_check" name="cap_check" <?php echo $this->options['cap_check'] ? 'checked="checked"' : '' ?> /> <?php _e('Use role limitation', $this->domain) ?></label>
+	</p>
+	<p id="roles">
+		<?php _e('Select the roles that can use quicktags.', $this->domain) ?><br />
+		<?php
+			foreach ($wp_roles->roles as $role => $data) {
+				$checked = isset($data['capabilities'][$this->cap]) && $data['capabilities'][$this->cap] ? 'checked="checked"' : '';
+				$disabled = $this->options['cap_check'] ? '' : 'disabled="disabled"';
+				printf('<label><input type="checkbox" name="role[]" value="%s" %s %s /> %s</label><br />', $role, $checked, $disabled, _c($data['name']));
+			}
+		?>
+	</p>
+	
+	<p class="submit">
+		<input type="hidden" name="action" value="rolelimit" />
+		<input type="submit" class="button-primary" value="<?php _e('Update roles', $this->domain) ?>" />
+	</p>
+</form>
 
 <h3><?php _e('Remove options', $this->domain) ?></h3>
 <p><?php _e('You can remove the above options from the database. All the settings return to default.', $this->domain) ?></p>
 <form id="rform" action="?page=<?php echo $this->option_hook; ?>" method="post">
 <p>
 <input type="hidden" name="action" value="remove" />
-<input type="submit" class="button" value="<?php _e('Remove options', $this->domain) ?>" name="submit" />
+<input type="submit" class="button" value="<?php _e('Remove options', $this->domain) ?>" />
 </p>
 </form>
 
