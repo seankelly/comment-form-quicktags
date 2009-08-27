@@ -85,7 +85,7 @@ class CommentFormQuicktags {
 			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/'.$this->plugin_name;
 		}
 		
-		load_plugin_textdomain($this->domain, PLUGINDIR . '/' . $this->plugin_name . '/languages');
+		load_textdomain($this->domain, dirname(__FILE__) . '/languages/' . get_locale() . '.mo');
 		
 		$this->get_option();
 		$this->set_hooks();
