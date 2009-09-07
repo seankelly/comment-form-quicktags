@@ -82,7 +82,7 @@ class CommentFormQuicktags {
 		if (defined('WP_PLUGIN_URL')) {
 			$this->plugin_url = WP_PLUGIN_URL . '/' . $this->plugin_name;
 		} else {
-			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/'.$this->plugin_name;
+			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/' . $this->plugin_name;
 		}
 		
 		load_textdomain($this->domain, dirname(__FILE__) . '/languages/' . get_locale() . '.mo');
