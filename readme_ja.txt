@@ -3,7 +3,7 @@ Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
 Tested up to: 2.8.4
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 このプラグインはクイックタグをコメントフォームに追加します。
 
@@ -14,6 +14,7 @@ Stable tag: 1.2
 = 特徴 =
 
 *   管理画面からタグを編集できます。
+*   権限でクイックタグの使用を制限できます。
 
 == インストール ==
 
@@ -27,6 +28,12 @@ Stable tag: 1.2
 2. 管理画面
 
 == 変更履歴 ==
+
+= 1.2.1 =
+* イタリア語言語ファイルを更新
+
+= 1.2 =
+* 権限でクイックタグの使用を制限するオプションを追加
 
 = 1.1.7 =
 * Child themeのcomments.phpが読み込まれないバグを修正

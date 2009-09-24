@@ -3,7 +3,7 @@ Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
 Tested up to: 2.8.4
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 This plugin inserts a quicktag toolbar on the comment form.
 
