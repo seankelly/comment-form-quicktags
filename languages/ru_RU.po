@@ -1,0 +1,142 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Comment Form Quicktags - russian\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-23 01:57+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Алексей Ричугин <info@masterwire.ru>\n"
+"Language-Team: Alexey Pichugin <info@masterwire.ru>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: \n"
+
+#: comment-form-quicktags.php:180
+#: comment-form-quicktags.php:349
+msgid "Comment Form Quicktags Options"
+msgstr "Параметры Comment Form Quicktags"
+
+#: comment-form-quicktags.php:180
+msgid "Comment Form Quicktags"
+msgstr "Comment Form Quicktags"
+
+#: comment-form-quicktags.php:193
+msgid "Are you sure?"
+msgstr "Вы уверены?"
+
+#: comment-form-quicktags.php:237
+msgid "Settings"
+msgstr "Настройки"
+
+#: comment-form-quicktags.php:324
+#: comment-form-quicktags.php:334
+msgid "Options saved."
+msgstr "Настройки сохранены"
+
+#: comment-form-quicktags.php:342
+msgid "Options removed."
+msgstr "Настройки удалены"
+
+#: comment-form-quicktags.php:350
+msgid "Javascript is needed! "
+msgstr "Необходим яваскрипт"
+
+#: comment-form-quicktags.php:352
+msgid "Tag Options"
+msgstr "Как настраивать:"
+
+#: comment-form-quicktags.php:354
+msgid "Click a tag which you want to edit or input ID which you want to add."
+msgstr "Выберите тэг чтобы его отредактировать или введите ID если хотите добавить новый."
+
+#: comment-form-quicktags.php:355
+msgid "Edit other field."
+msgstr "Отредактируйте другие поля"
+
+#: comment-form-quicktags.php:356
+msgid "Click Edit/Add button."
+msgstr "Нажмите кнопку Правка/Добавить"
+
+#: comment-form-quicktags.php:357
+msgid "Sort tags by dragging."
+msgstr "Задайте порядок кнопок с тэгами простым их перетаскиванием"
+
+#: comment-form-quicktags.php:358
+msgid "After that, click Update Tags button to save."
+msgstr "Нажмите кнопку </strong>Обновить</strong> чтобы сохранить настройки"
+
+#: comment-form-quicktags.php:360
+#, php-format
+msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
+msgstr "<strong>[*]</strong> В комментариях разрешены следующие тэги <code class=\"tags\">%s</code>. Обратите внимание, что, например для загрузки картинок пользователям потребуются права на запись файлов в соответствующую папку."
+
+#: comment-form-quicktags.php:361
+msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
+msgstr "<strong>[*]</strong> ID Специальных возможностей: <strong>ed_link</strong> - вставить ссылку, <strong>ed_img</strong> - вставить картинку и <strong>ed_close</strong> - закрыть все тэги."
+
+#: comment-form-quicktags.php:379
+msgid "ID<span>*</span>"
+msgstr "ID<span>*</span>"
+
+#: comment-form-quicktags.php:382
+msgid "Display<span>*</span>"
+msgstr "Надпись (название)<span>*</span>"
+
+#: comment-form-quicktags.php:385
+msgid "Start tag"
+msgstr "Открывающий тэг"
+
+#: comment-form-quicktags.php:388
+msgid "End tag"
+msgstr "Закрывающий тэг"
+
+#: comment-form-quicktags.php:391
+msgid "Access key"
+msgstr "Клавиша"
+
+#: comment-form-quicktags.php:396
+msgid "Edit/Add"
+msgstr "Правка/Добавить"
+
+#: comment-form-quicktags.php:397
+msgid "Delete"
+msgstr "Удалить"
+
+#: comment-form-quicktags.php:398
+msgid "Clear fields"
+msgstr "Очистить поля"
+
+#: comment-form-quicktags.php:407
+msgid "Update Tags"
+msgstr "Обновить"
+
+#: comment-form-quicktags.php:411
+msgid "Role limitation"
+msgstr "Ограничение использования"
+
+#: comment-form-quicktags.php:414
+msgid "Use role limitation"
+msgstr "Задействавать ограничения (если не выбрано тэги будут доступны всем посетителям)"
+
+#: comment-form-quicktags.php:417
+msgid "Select the roles that can use quicktags."
+msgstr "Укажите, для пользователей с каким статусом должны быть доступны тэги:"
+
+#: comment-form-quicktags.php:429
+msgid "Update roles"
+msgstr "Обновить ограничения"
+
+#: comment-form-quicktags.php:433
+#: comment-form-quicktags.php:438
+msgid "Remove options"
+msgstr "Сбросить настройки"
+
+#: comment-form-quicktags.php:434
+msgid "You can remove the above options from the database. All the settings return to default."
+msgstr "Чтобы удалить все настройки плагина из базы данных и вернуться к настройкам по умолчанию нажмите эту кнопку"
+

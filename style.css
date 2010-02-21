@@ -6,7 +6,7 @@ div#ed_toolbar input:hover {
 	background: #ddd;
 }
 div#ed_toolbar input, #ed_toolbar span{
-	background: #fff url("../../../wp-admin/images/fade-butt.png") repeat-x 0 -2px;
+	background: #fff url("img/fade-butt.png") repeat-x 0 -2px;
 	border-color: #C3C3C3;
 	margin: 3px 1px 4px;
 	line-height: 18px;
