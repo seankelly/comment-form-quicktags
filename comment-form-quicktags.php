@@ -168,9 +168,29 @@ class CommentFormQuicktags {
 	 * Set WP hooks.
 	 */
 	function set_hooks() {
-		add_action('wp_head', array(&$this, 'add_head'));
+		wp_register_style('cfq', $this->plugin_url . '/style.css');
+		add_action('wp_print_scripts', array(&$this, 'add_scripts'));
+		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 		add_filter('comments_template', array(&$this, 'detect_start'));
+	}
+	
+	/**
+	 * Add scripts.
+	 */
+	function add_scripts() {
+		if (is_singular()) {
+			wp_enqueue_script('cfq', $this->plugin_url . '/quicktags.php', array(), date('Ymd', $this->options['modified']));
+		}
+	}
+	
+	/**
+	 * Add styles.
+	 */
+	function add_styles() {
+		if (is_singular()) {
+			wp_enqueue_style('cfq');
+		}
 	}
 
 	/**
@@ -198,32 +218,8 @@ class CommentFormQuicktags {
 	 * Add styles to admin header.
 	 */
 	function add_admin_styles() {
-		?>
-
-<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>/style.css" type="text/css" media="screen" />
-<style type="text/css" >
-#ed_toolbar span {
-	cursor: move;
-}
-ol.desc {
-	list-style-type: decimal;
-	margin-left: 2em;
-}
-#att th {
-	width: 6em;
-}
-#att label span {
-	color: #f00;
-	font-weight: bold;
-	margin-left: 2px;
-}
-code.tags {
-	font-family: 'Courier New', Courier, monospace, mono !important;
-	background-color: transparent;
-}
-</style>
-
-		<?php
+		wp_enqueue_style('cfq');
+		wp_enqueue_style('cfq-admin', $this->plugin_url . '/admin.css');
 	}
 
 	/**
@@ -238,14 +234,6 @@ code.tags {
 			$links = array_merge(array($settings_link), $links);
 		}
 		return $links;
-	}
-
-	/**
-	 * Add header data.
-	 */
-	function add_head() {
-		echo '<script src="' . $this->plugin_url . '/quicktags.php?ver=' . date('Ymd', $this->options['modified']) . '" type="text/javascript"></script>';
-		echo '<link rel="stylesheet" href="' . $this->plugin_url . '/style.css" type="text/css" media="screen" />';
 	}
 
 	/**
