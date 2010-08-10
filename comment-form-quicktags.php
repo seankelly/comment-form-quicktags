@@ -217,6 +217,7 @@ class CommentFormQuicktags {
 	/**
 	 * Add styles to admin header.
 	 */
+	 
 	function add_admin_styles() {
 		wp_enqueue_style('cfq');
 		wp_enqueue_style('cfq-admin', $this->plugin_url . '/admin.css');
@@ -266,7 +267,7 @@ class CommentFormQuicktags {
 	 * @return string
 	 */
 	function add_tags($content) {
-		$toolbar = '<script type="text/javascript">edToolbar();</script>';
+		$toolbar = '<script type="text/javascript">var edInserted; if (!edInserted) {edToolbar(); edInserted = true;}</script>';
 		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\2\');</script>';
 		$content = preg_replace(
 			'%<textarea(.*)id="([^"]*)"(.*)>(.*)</textarea>%U',
