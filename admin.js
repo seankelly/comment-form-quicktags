@@ -10,13 +10,20 @@ document.observe('dom:loaded', function() {
 		if (i) $('clear_btn').enable(); else $('clear_btn').disable();
 	}
 	
+	function select(element) {
+		$$('#ed_toolbar span').invoke('removeClassName', 'selected');
+		element.addClassName('selected');
+	}
+	
 	function updateFunc(event) {
-		var id = Event.element(event).identify().substr(3);
+		var element = Event.element(event);
+		var id = element.identify().substr(3);
 		$('edit_id').value = id;
 		$('edit_display').value = buttons[id].display ? buttons[id].display : '';
 		$('edit_start').value = buttons[id].start ? buttons[id].start : '';
 		$('edit_end').value = buttons[id].end ? buttons[id].end : '';
 		$('edit_access').value = buttons[id].access ? buttons[id].access : '';
+		select(element);
 		toggleBtn();
 	}
 	
@@ -50,6 +57,7 @@ document.observe('dom:loaded', function() {
 			} else {
 				var new_btn = new Element('span', {'class': 'ed_button', 'id': 'ed_'+id}).update(display).hide().observe('click', updateFunc);
 				$('ed_toolbar').appendChild(new_btn);
+				select(new_btn);
 				new_btn.appear({duration: 0.6});
 				beSortable();
 			}
