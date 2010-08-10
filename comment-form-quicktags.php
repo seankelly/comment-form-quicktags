@@ -145,8 +145,19 @@ class CommentFormQuicktags {
 			'modified' => filemtime(__FILE__),
 			'cap_check' => false
 		);
-		if (!isset($this->options['sort'])) $this->options['sort'] = array_keys($this->options['tags']);
-		if ($this->options['modified'] < filemtime(__FILE__)) $this->options['modified'] = filemtime(__FILE__);
+		
+		if ($this->options['modified'] < filemtime(__FILE__)) {
+			$this->options['modified'] = filemtime(__FILE__);
+		}
+		if (array_key_exists('sort', $this->options)) {
+			$tags = array();
+			foreach ($this->options['sort'] as $id) {
+				$tags[$id] = $this->options['tags'][$id];
+			}
+			$this->options['tags'] = $tags;
+			unset($this->options['sort']);
+			$this->update_option();
+		}
 	}
 
 	/**
@@ -282,11 +293,10 @@ class CommentFormQuicktags {
 	 * Print quicktag script.
 	 */
 	function print_tag_js() {
-		foreach($this->options['sort'] as $tag) {
-			$sets = $this->options['tags'][$tag];
+		foreach($this->options['tags'] as $id => $sets) {
 			printf(
 				'edButtons[edButtons.length] = new edButton(\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');',
-				'ed_' . $tag,
+				'ed_' . $id,
 				$sets['display'],
 				$sets['start'],
 				$sets['end'],
@@ -306,8 +316,14 @@ class CommentFormQuicktags {
 			switch ($_POST['action']) {
 				case 'update':
 					parse_str($_POST['sort'], $buf);
-					if (!empty($this->options['sort'])) $this->options['sort'] = $buf['ed_toolbar'];
-					if (!empty($this->options['tags'])) $this->options['tags'] = json_decode(stripslashes($_POST['tags']), true);
+					$sort = $buf['ed_toolbar'];
+					
+					$tags = json_decode(stripslashes($_POST['tags']));
+					$this->options['tags'] = array();
+					foreach ($sort as $id) {
+						$this->options['tags'][$id] = (array)$tags->$id;
+					}
+					
 					$this->options['modified'] = time();
 					$this->update_option();
 					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
@@ -356,8 +372,8 @@ class CommentFormQuicktags {
 </script>
 
 <div id="ed_toolbar">
-	<?php foreach($this->options['sort'] as $tag): ?>
-		<span class="ed_button" id="ed_<?php echo $tag; ?>"><?php echo $this->options['tags'][$tag]['display']; ?></span>
+	<?php foreach($this->options['tags'] as $id => $sets): ?>
+		<span class="ed_button" id="ed_<?php echo $id; ?>"><?php echo $sets['display']; ?></span>
 	<?php endforeach; ?>
 </div>
 
