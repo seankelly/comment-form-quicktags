@@ -1,0 +1,144 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Comment Form Quicktags\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-08-23 01:57+0100\n"
+"PO-Revision-Date: 2010-07-05 17:47+0100\n"
+"Last-Translator: Babounet <babounet40@gmail.com>\n"
+"Language-Team: BlogdeMickael <babounet40@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+
+#: comment-form-quicktags.php:180
+#: comment-form-quicktags.php:349
+msgid "Comment Form Quicktags Options"
+msgstr "Options pour Comment Form Quicktags"
+
+#: comment-form-quicktags.php:180
+msgid "Comment Form Quicktags"
+msgstr "Comment Form Quicktags"
+
+#: comment-form-quicktags.php:193
+msgid "Are you sure?"
+msgstr "Êtes-vous sûr?"
+
+#: comment-form-quicktags.php:237
+msgid "Settings"
+msgstr "Paramètres"
+
+#: comment-form-quicktags.php:324
+#: comment-form-quicktags.php:334
+msgid "Options saved."
+msgstr "Options sauvegardées."
+
+#: comment-form-quicktags.php:342
+msgid "Options removed."
+msgstr "Options supprimées."
+
+#: comment-form-quicktags.php:350
+msgid "Javascript is needed! "
+msgstr "Le Javascript est nécessaire!"
+
+#: comment-form-quicktags.php:352
+msgid "Tag Options"
+msgstr "Options des balises"
+
+#: comment-form-quicktags.php:354
+msgid "Click a tag which you want to edit or input ID which you want to add."
+msgstr "Cliquez sur la balise que vous voulez éditer ou entrez une ID pour en ajouter une nouvelle."
+
+#: comment-form-quicktags.php:355
+msgid "Edit other field."
+msgstr "Modifiez les autres champs."
+
+#: comment-form-quicktags.php:356
+msgid "Click Edit/Add button."
+msgstr "Cliquez sur le bouton \"Editer/Ajouter\""
+
+#: comment-form-quicktags.php:357
+msgid "Sort tags by dragging."
+msgstr "Changez l'emplacement des balises en les déplaçant."
+
+#: comment-form-quicktags.php:358
+msgid "After that, click Update Tags button to save."
+msgstr "Après celà, cliquez sur \"Mettre à jour\" pour sauvegarder les changements."
+
+#: comment-form-quicktags.php:360
+#, php-format
+msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
+msgstr "<strong>[INFO]</strong> Balises autorisées dans les commentaires: <code class=\"tags\">%s</code>."
+
+#: comment-form-quicktags.php:361
+msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
+msgstr "<strong>[NOTE]</strong> Il y a des ID spéciaux: ed_link, ed_img and ed_close."
+
+#: comment-form-quicktags.php:379
+msgid "ID<span>*</span>"
+msgstr "ID"
+
+#: comment-form-quicktags.php:382
+msgid "Display<span>*</span>"
+msgstr "Nom"
+
+#: comment-form-quicktags.php:385
+msgid "Start tag"
+msgstr "Balise de début"
+
+#: comment-form-quicktags.php:388
+msgid "End tag"
+msgstr "Balise de fin"
+
+#: comment-form-quicktags.php:391
+msgid "Access key"
+msgstr "Touche d'accès"
+
+#: comment-form-quicktags.php:396
+msgid "Edit/Add"
+msgstr "Editer/Ajouter"
+
+#: comment-form-quicktags.php:397
+msgid "Delete"
+msgstr "Supprimer"
+
+#: comment-form-quicktags.php:398
+msgid "Clear fields"
+msgstr "Rafraichir les champs"
+
+#: comment-form-quicktags.php:407
+msgid "Update Tags"
+msgstr "Mettre à jour"
+
+#: comment-form-quicktags.php:411
+msgid "Role limitation"
+msgstr "Restrictions"
+
+#: comment-form-quicktags.php:414
+msgid "Use role limitation"
+msgstr "Activer les restrictions"
+
+#: comment-form-quicktags.php:417
+msgid "Select the roles that can use quicktags."
+msgstr "Séléctionnez les groupes qui peuvent utiliser les balises."
+
+#: comment-form-quicktags.php:429
+msgid "Update roles"
+msgstr "Mettre à jour"
+
+#: comment-form-quicktags.php:433
+#: comment-form-quicktags.php:438
+msgid "Remove options"
+msgstr "Options de suppression"
+
+#: comment-form-quicktags.php:434
+msgid "You can remove the above options from the database. All the settings return to default."
+msgstr "Vous pouvez supprimer les options ci-dessus de la base de données. Tous les réglages seront réinitialisés."
+
