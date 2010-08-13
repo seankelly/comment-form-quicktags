@@ -1,0 +1,23 @@
+#ed_toolbar span {
+	cursor: move;
+}
+ol.desc {
+	list-style-type: decimal;
+	margin-left: 2em;
+}
+#att th {
+	width: 6em;
+}
+#att label span {
+	color: #f00;
+	font-weight: bold;
+	margin-left: 2px;
+}
+code.tags {
+	font-family: 'Courier New', Courier, monospace, mono !important;
+	background-color: transparent;
+}
+
+#ed_toolbar span.selected {
+	border-color: #f00;
+}

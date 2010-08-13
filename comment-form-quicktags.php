@@ -3,7 +3,7 @@
 Plugin Name: Comment Form Quicktags
 Plugin URI: http://rp.exadge.com/2009/01/08/comment-form-quicktags/
 Description: This plugin inserts a quicktag toolbar on the comment form.
-Version: 1.2.2
+Version: 1.2.3
 Author: Regen
 Author URI: http://rp.exadge.com
 */
@@ -145,8 +145,19 @@ class CommentFormQuicktags {
 			'modified' => filemtime(__FILE__),
 			'cap_check' => false
 		);
-		if (!isset($this->options['sort'])) $this->options['sort'] = array_keys($this->options['tags']);
-		if ($this->options['modified'] < filemtime(__FILE__)) $this->options['modified'] = filemtime(__FILE__);
+		
+		if ($this->options['modified'] < filemtime(__FILE__)) {
+			$this->options['modified'] = filemtime(__FILE__);
+		}
+		if (array_key_exists('sort', $this->options)) {
+			$tags = array();
+			foreach ($this->options['sort'] as $id) {
+				$tags[$id] = $this->options['tags'][$id];
+			}
+			$this->options['tags'] = $tags;
+			unset($this->options['sort']);
+			$this->update_option();
+		}
 	}
 
 	/**
@@ -168,9 +179,29 @@ class CommentFormQuicktags {
 	 * Set WP hooks.
 	 */
 	function set_hooks() {
-		add_action('wp_head', array(&$this, 'add_head'));
+		wp_register_style('cfq', $this->plugin_url . '/style.css');
+		add_action('wp_print_scripts', array(&$this, 'add_scripts'));
+		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 		add_filter('comments_template', array(&$this, 'detect_start'));
+	}
+	
+	/**
+	 * Add scripts.
+	 */
+	function add_scripts() {
+		if (is_singular()) {
+			wp_enqueue_script('cfq', $this->plugin_url . '/quicktags.php', array(), date('Ymd', $this->options['modified']));
+		}
+	}
+	
+	/**
+	 * Add styles.
+	 */
+	function add_styles() {
+		if (is_singular()) {
+			wp_enqueue_style('cfq');
+		}
 	}
 
 	/**
@@ -197,33 +228,10 @@ class CommentFormQuicktags {
 	/**
 	 * Add styles to admin header.
 	 */
+	 
 	function add_admin_styles() {
-		?>
-
-<link rel="stylesheet" href="<?php echo $this->plugin_url; ?>/style.css" type="text/css" media="screen" />
-<style type="text/css" >
-#ed_toolbar span {
-	cursor: move;
-}
-ol.desc {
-	list-style-type: decimal;
-	margin-left: 2em;
-}
-#att th {
-	width: 6em;
-}
-#att label span {
-	color: #f00;
-	font-weight: bold;
-	margin-left: 2px;
-}
-code.tags {
-	font-family: 'Courier New', Courier, monospace, mono !important;
-	background-color: transparent;
-}
-</style>
-
-		<?php
+		wp_enqueue_style('cfq');
+		wp_enqueue_style('cfq-admin', $this->plugin_url . '/admin.css');
 	}
 
 	/**
@@ -238,14 +246,6 @@ code.tags {
 			$links = array_merge(array($settings_link), $links);
 		}
 		return $links;
-	}
-
-	/**
-	 * Add header data.
-	 */
-	function add_head() {
-		echo '<script src="' . $this->plugin_url . '/quicktags.php?ver=' . date('Ymd', $this->options['modified']) . '" type="text/javascript"></script>';
-		echo '<link rel="stylesheet" href="' . $this->plugin_url . '/style.css" type="text/css" media="screen" />';
 	}
 
 	/**
@@ -278,7 +278,7 @@ code.tags {
 	 * @return string
 	 */
 	function add_tags($content) {
-		$toolbar = '<script type="text/javascript">edToolbar();</script>';
+		$toolbar = '<script type="text/javascript">var edInserted; if (!edInserted) {edToolbar(); edInserted = true;}</script>';
 		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\2\');</script>';
 		$content = preg_replace(
 			'%<textarea(.*)id="([^"]*)"(.*)>(.*)</textarea>%U',
@@ -293,11 +293,10 @@ code.tags {
 	 * Print quicktag script.
 	 */
 	function print_tag_js() {
-		foreach($this->options['sort'] as $tag) {
-			$sets = $this->options['tags'][$tag];
+		foreach($this->options['tags'] as $id => $sets) {
 			printf(
 				'edButtons[edButtons.length] = new edButton(\'%s\', \'%s\', \'%s\', \'%s\', \'%s\');',
-				'ed_' . $tag,
+				'ed_' . $id,
 				$sets['display'],
 				$sets['start'],
 				$sets['end'],
@@ -317,8 +316,14 @@ code.tags {
 			switch ($_POST['action']) {
 				case 'update':
 					parse_str($_POST['sort'], $buf);
-					if (!empty($this->options['sort'])) $this->options['sort'] = $buf['ed_toolbar'];
-					if (!empty($this->options['tags'])) $this->options['tags'] = json_decode(stripslashes($_POST['tags']), true);
+					$sort = $buf['ed_toolbar'];
+					
+					$tags = json_decode(stripslashes($_POST['tags']));
+					$this->options['tags'] = array();
+					foreach ($sort as $id) {
+						$this->options['tags'][$id] = (array)$tags->$id;
+					}
+					
 					$this->options['modified'] = time();
 					$this->update_option();
 					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
@@ -367,8 +372,8 @@ code.tags {
 </script>
 
 <div id="ed_toolbar">
-	<?php foreach($this->options['sort'] as $tag): ?>
-		<span class="ed_button" id="ed_<?php echo $tag; ?>"><?php echo $this->options['tags'][$tag]['display']; ?></span>
+	<?php foreach($this->options['tags'] as $id => $sets): ?>
+		<span class="ed_button" id="ed_<?php echo $id; ?>"><?php echo $sets['display']; ?></span>
 	<?php endforeach; ?>
 </div>
 

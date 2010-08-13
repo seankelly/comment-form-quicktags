@@ -3,136 +3,138 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-08-13 22:33+0900\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2010-07-05 17:47+0100\n"
+"Last-Translator: Babounet <babounet40@gmail.com>\n"
+"Language-Team: BlogdeMickael <babounet40@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
 
 #: comment-form-quicktags.php:211 comment-form-quicktags.php:354
 msgid "Comment Form Quicktags Options"
-msgstr ""
+msgstr "Options pour Comment Form Quicktags"
 
 #: comment-form-quicktags.php:211
 msgid "Comment Form Quicktags"
-msgstr ""
+msgstr "Comment Form Quicktags"
 
 #: comment-form-quicktags.php:224
 msgid "Are you sure?"
-msgstr ""
+msgstr "Êtes-vous sûr?"
 
 #: comment-form-quicktags.php:245
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 #: comment-form-quicktags.php:329 comment-form-quicktags.php:339
 msgid "Options saved."
-msgstr ""
+msgstr "Options sauvegardées."
 
 #: comment-form-quicktags.php:347
 msgid "Options removed."
-msgstr ""
+msgstr "Options supprimées."
 
 #: comment-form-quicktags.php:355
 msgid "Javascript is needed! "
-msgstr ""
+msgstr "Le Javascript est nécessaire!"
 
 #: comment-form-quicktags.php:357
 msgid "Tag Options"
-msgstr ""
+msgstr "Options des balises"
 
 #: comment-form-quicktags.php:359
 msgid "Click a tag which you want to edit or input ID which you want to add."
-msgstr ""
+msgstr "Cliquez sur la balise que vous voulez éditer ou entrez une ID pour en ajouter une nouvelle."
 
 #: comment-form-quicktags.php:360
 msgid "Edit other field."
-msgstr ""
+msgstr "Modifiez les autres champs."
 
 #: comment-form-quicktags.php:361
 msgid "Click Edit/Add button."
-msgstr ""
+msgstr "Cliquez sur le bouton \"Editer/Ajouter\""
 
 #: comment-form-quicktags.php:362
 msgid "Sort tags by dragging."
-msgstr ""
+msgstr "Changez l'emplacement des balises en les déplaçant."
 
 #: comment-form-quicktags.php:363
 msgid "After that, click Update Tags button to save."
-msgstr ""
+msgstr "Après celà, cliquez sur \"Mettre à jour\" pour sauvegarder les changements."
 
 #: comment-form-quicktags.php:365
 #, php-format
 msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
-msgstr ""
+msgstr "<strong>[INFO]</strong> Balises autorisées dans les commentaires: <code class=\"tags\">%s</code>."
 
 #: comment-form-quicktags.php:366
 msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
-msgstr ""
+msgstr "<strong>[NOTE]</strong> Il y a des ID spéciaux: ed_link, ed_img and ed_close."
 
 #: comment-form-quicktags.php:384
 msgid "ID<span>*</span>"
-msgstr ""
+msgstr "ID"
 
 #: comment-form-quicktags.php:387
 msgid "Display<span>*</span>"
-msgstr ""
+msgstr "Nom"
 
 #: comment-form-quicktags.php:390
 msgid "Start tag"
-msgstr ""
+msgstr "Balise de début"
 
 #: comment-form-quicktags.php:393
 msgid "End tag"
-msgstr ""
+msgstr "Balise de fin"
 
 #: comment-form-quicktags.php:396
 msgid "Access key"
-msgstr ""
+msgstr "Touche d'accès"
 
 #: comment-form-quicktags.php:401
 msgid "Edit/Add"
-msgstr ""
+msgstr "Editer/Ajouter"
 
 #: comment-form-quicktags.php:402
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: comment-form-quicktags.php:403
 msgid "Clear fields"
-msgstr ""
+msgstr "Rafraichir les champs"
 
 #: comment-form-quicktags.php:412
 msgid "Update Tags"
-msgstr ""
+msgstr "Mettre à jour"
 
 #: comment-form-quicktags.php:416
 msgid "Role limitation"
-msgstr ""
+msgstr "Restrictions"
 
 #: comment-form-quicktags.php:419
 msgid "Use role limitation"
-msgstr ""
+msgstr "Activer les restrictions"
 
 #: comment-form-quicktags.php:422
 msgid "Select the roles that can use quicktags."
-msgstr ""
+msgstr "Séléctionnez les groupes qui peuvent utiliser les balises."
 
 #: comment-form-quicktags.php:434
 msgid "Update roles"
-msgstr ""
+msgstr "Mettre à jour"
 
 #: comment-form-quicktags.php:438 comment-form-quicktags.php:443
 msgid "Remove options"
-msgstr ""
+msgstr "Options de suppression"
 
 #: comment-form-quicktags.php:439
 msgid "You can remove the above options from the database. All the settings return to default."
-msgstr ""
+msgstr "Vous pouvez supprimer les options ci-dessus de la base de données. Tous les réglages seront réinitialisés."

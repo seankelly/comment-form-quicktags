@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-23 01:57+0100\n"
+"POT-Creation-Date: 2010-08-13 22:33+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Regen <g(DOT)regen100(AT)gmail(DOT)com>\n"
 "Language-Team: \n"
@@ -12,127 +12,123 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Language: Japanese\n"
 
-#: comment-form-quicktags.php:180
-#: comment-form-quicktags.php:349
+#: comment-form-quicktags.php:211 comment-form-quicktags.php:354
 msgid "Comment Form Quicktags Options"
 msgstr "Comment Form Quicktags オプション"
 
-#: comment-form-quicktags.php:180
+#: comment-form-quicktags.php:211
 msgid "Comment Form Quicktags"
 msgstr "Comment Form Quicktags"
 
-#: comment-form-quicktags.php:193
+#: comment-form-quicktags.php:224
 msgid "Are you sure?"
 msgstr "よろしいですか？"
 
-#: comment-form-quicktags.php:237
+#: comment-form-quicktags.php:245
 msgid "Settings"
 msgstr "設定"
 
-#: comment-form-quicktags.php:324
-#: comment-form-quicktags.php:334
+#: comment-form-quicktags.php:329 comment-form-quicktags.php:339
 msgid "Options saved."
 msgstr "設定が保存されました。"
 
-#: comment-form-quicktags.php:342
+#: comment-form-quicktags.php:347
 msgid "Options removed."
 msgstr "設定が削除されました。"
 
-#: comment-form-quicktags.php:350
+#: comment-form-quicktags.php:355
 msgid "Javascript is needed! "
 msgstr "Javascriptが必要です"
 
-#: comment-form-quicktags.php:352
+#: comment-form-quicktags.php:357
 msgid "Tag Options"
 msgstr "タグ設定"
 
-#: comment-form-quicktags.php:354
+#: comment-form-quicktags.php:359
 msgid "Click a tag which you want to edit or input ID which you want to add."
 msgstr "編集したいタグをクリックするか追加したいIDを入力してください。"
 
-#: comment-form-quicktags.php:355
+#: comment-form-quicktags.php:360
 msgid "Edit other field."
 msgstr "他の項目を編集してください。"
 
-#: comment-form-quicktags.php:356
+#: comment-form-quicktags.php:361
 msgid "Click Edit/Add button."
 msgstr "編集/追加ボタンをクリックしてください。"
 
-#: comment-form-quicktags.php:357
+#: comment-form-quicktags.php:362
 msgid "Sort tags by dragging."
 msgstr "タグをドラッグして順序を変えてください。"
 
-#: comment-form-quicktags.php:358
+#: comment-form-quicktags.php:363
 msgid "After that, click Update Tags button to save."
 msgstr "そのあと、タグを更新ボタンを押して保存してください。"
 
-#: comment-form-quicktags.php:360
+#: comment-form-quicktags.php:365
 #, php-format
 msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
 msgstr "<strong>[Info]</strong> コメントで使えるタグ: <code class=\"tags\">%s</code>"
 
-#: comment-form-quicktags.php:361
+#: comment-form-quicktags.php:366
 msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
 msgstr "<strong>[Note]</strong> 特別なIDがあります: ed_link, ed_img, ed_close"
 
-#: comment-form-quicktags.php:379
+#: comment-form-quicktags.php:384
 msgid "ID<span>*</span>"
 msgstr "ID<span>*</span>"
 
-#: comment-form-quicktags.php:382
+#: comment-form-quicktags.php:387
 msgid "Display<span>*</span>"
 msgstr "表示名<span>*</span>"
 
-#: comment-form-quicktags.php:385
+#: comment-form-quicktags.php:390
 msgid "Start tag"
 msgstr "開始タグ"
 
-#: comment-form-quicktags.php:388
+#: comment-form-quicktags.php:393
 msgid "End tag"
 msgstr "終了タグ"
 
-#: comment-form-quicktags.php:391
+#: comment-form-quicktags.php:396
 msgid "Access key"
 msgstr "アクセスキー"
 
-#: comment-form-quicktags.php:396
+#: comment-form-quicktags.php:401
 msgid "Edit/Add"
 msgstr "編集/追加"
 
-#: comment-form-quicktags.php:397
+#: comment-form-quicktags.php:402
 msgid "Delete"
 msgstr "削除"
 
-#: comment-form-quicktags.php:398
+#: comment-form-quicktags.php:403
 msgid "Clear fields"
 msgstr "項目をクリア"
 
-#: comment-form-quicktags.php:407
+#: comment-form-quicktags.php:412
 msgid "Update Tags"
 msgstr "タグを更新"
 
-#: comment-form-quicktags.php:411
+#: comment-form-quicktags.php:416
 msgid "Role limitation"
 msgstr "権限での制限"
 
-#: comment-form-quicktags.php:414
+#: comment-form-quicktags.php:419
 msgid "Use role limitation"
 msgstr "権限でクイックタグの使用を制限する"
 
-#: comment-form-quicktags.php:417
+#: comment-form-quicktags.php:422
 msgid "Select the roles that can use quicktags."
 msgstr "クイックタグを使用できる権限を選んでください。"
 
-#: comment-form-quicktags.php:429
+#: comment-form-quicktags.php:434
 msgid "Update roles"
 msgstr "権限を更新"
 
-#: comment-form-quicktags.php:433
-#: comment-form-quicktags.php:438
+#: comment-form-quicktags.php:438 comment-form-quicktags.php:443
 msgid "Remove options"
 msgstr "オプションを削除"
 
-#: comment-form-quicktags.php:434
+#: comment-form-quicktags.php:439
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr "上のオプションをデータベースから削除できます。全ての設定はデフォルトに戻ります。"
-

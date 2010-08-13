@@ -2,8 +2,8 @@
 Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
-Tested up to: 2.9.2
-Stable tag: 1.2.2
+Tested up to: 3.0.1
+Stable tag: 1.2.3
 
 This plugin inserts a quicktag toolbar on the comment form.
 
@@ -28,6 +28,12 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 1. The admin page
 
 == Changelog ==
+
+= 1.2.3 =
+* Add French translations by Phenom.
+* Fixed admin CSS.
+* Fixed scripts for Mystique.
+* Fixed script and style loading.
 
 = 1.2.2 =
 * Added Russian translations by alex.
