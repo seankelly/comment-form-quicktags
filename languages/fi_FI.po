@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-01-11 23:49+0900\n"
+"POT-Creation-Date: 2010-08-13 22:33+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: C.Hellberg <webmaster@blogijuttu.net>\n"
 "Language-Team: C.Hellberg <webmaster@blogijuttu.net>\n"
@@ -16,110 +16,124 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: \n"
 
-#: /comment-form-quicktags.php:109
-#: /comment-form-quicktags.php:224
+#: comment-form-quicktags.php:211 comment-form-quicktags.php:354
 msgid "Comment Form Quicktags Options"
 msgstr "Comment Form Quicktags Asetukset"
 
-#: /comment-form-quicktags.php:109
+#: comment-form-quicktags.php:211
 msgid "Comment Form Quicktags"
 msgstr "Comment Form Quicktags"
 
-#: /comment-form-quicktags.php:120
+#: comment-form-quicktags.php:224
 msgid "Are you sure?"
 msgstr "Oletko varma?"
 
-#: /comment-form-quicktags.php:155
+#: comment-form-quicktags.php:245
 msgid "Settings"
 msgstr "Asetukset"
 
-#: /comment-form-quicktags.php:212
+#: comment-form-quicktags.php:329 comment-form-quicktags.php:339
 msgid "Options saved."
 msgstr "Asetukset tallennettu."
 
-#: /comment-form-quicktags.php:217
+#: comment-form-quicktags.php:347
 msgid "Options removed."
 msgstr "Asetukset poistettu."
 
-#: /comment-form-quicktags.php:225
+#: comment-form-quicktags.php:355
 msgid "Javascript is needed! "
 msgstr "Tarvitaan javascriptiä! "
 
-#: /comment-form-quicktags.php:227
+#: comment-form-quicktags.php:357
 msgid "Tag Options"
 msgstr "Tagien asetukset"
 
-#: /comment-form-quicktags.php:229
+#: comment-form-quicktags.php:359
 msgid "Click a tag which you want to edit or input ID which you want to add."
 msgstr "Paina tagia, jota haluat muokata tai syötä uuden tagin ID."
 
-#: /comment-form-quicktags.php:230
+#: comment-form-quicktags.php:360
 msgid "Edit other field."
 msgstr "Lisää tai muokkaa muut tiedot sopiviksi."
 
-#: /comment-form-quicktags.php:231
+#: comment-form-quicktags.php:361
 msgid "Click Edit/Add button."
 msgstr "Paina \"Muokaa/Lisää\"-nappia."
 
-#: /comment-form-quicktags.php:232
+#: comment-form-quicktags.php:362
 msgid "Sort tags by dragging."
 msgstr "Valitse tagien järjestys."
 
-#: /comment-form-quicktags.php:233
+#: comment-form-quicktags.php:363
 msgid "After that, click Update Tags button to save."
 msgstr "Sen jälkeen paina \"Päivitä tagit\"-nappia tallentaaksesi asetukset."
 
-#: /comment-form-quicktags.php:235
+#: comment-form-quicktags.php:365
 #, php-format
 msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
 msgstr "<strong>[Infoa]</strong> Sallitut tagit kommenteissa <code class=\"tags\">%s</code>."
 
-#: /comment-form-quicktags.php:236
+#: comment-form-quicktags.php:366
 msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
 msgstr "<strong>[Muista]</strong> Nämä ovat erikoistunnuksia (IDeitä): ed_link, ed_img and ed_close."
 
-#: /comment-form-quicktags.php:252
+#: comment-form-quicktags.php:384
 msgid "ID<span>*</span>"
 msgstr "ID<span>*</span>"
 
-#: /comment-form-quicktags.php:255
+#: comment-form-quicktags.php:387
 msgid "Display<span>*</span>"
 msgstr "Nimi<span>*</span>"
 
-#: /comment-form-quicktags.php:258
+#: comment-form-quicktags.php:390
 msgid "Start tag"
 msgstr "Tagin alku"
 
-#: /comment-form-quicktags.php:261
+#: comment-form-quicktags.php:393
 msgid "End tag"
 msgstr "Tagin loppu"
 
-#: /comment-form-quicktags.php:264
+#: comment-form-quicktags.php:396
 msgid "Access key"
 msgstr "Avain"
 
-#: /comment-form-quicktags.php:269
+#: comment-form-quicktags.php:401
 msgid "Edit/Add"
 msgstr "Lisää/Muokkaa"
 
-#: /comment-form-quicktags.php:270
+#: comment-form-quicktags.php:402
 msgid "Delete"
 msgstr "Poista"
 
-#: /comment-form-quicktags.php:271
+#: comment-form-quicktags.php:403
 msgid "Clear fields"
 msgstr "Tyhjennä"
 
-#: /comment-form-quicktags.php:280
+#: comment-form-quicktags.php:412
 msgid "Update Tags"
 msgstr "Päivitä  tagit"
 
-#: /comment-form-quicktags.php:285
-#: /comment-form-quicktags.php:290
+#: comment-form-quicktags.php:416
+msgid "Role limitation"
+msgstr ""
+
+#: comment-form-quicktags.php:419
+msgid "Use role limitation"
+msgstr ""
+
+#: comment-form-quicktags.php:422
+msgid "Select the roles that can use quicktags."
+msgstr ""
+
+#: comment-form-quicktags.php:434
+#, fuzzy
+msgid "Update roles"
+msgstr "Päivitä  tagit"
+
+#: comment-form-quicktags.php:438 comment-form-quicktags.php:443
 msgid "Remove options"
 msgstr "Poista asetukset"
 
-#: /comment-form-quicktags.php:286
+#: comment-form-quicktags.php:439
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr "Pystyt aina poistamaan nämä asetukset tietokannastasi. Tällöin asetukset palaavat oletuksiinsa."
-
