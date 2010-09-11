@@ -42,7 +42,7 @@ document.observe('dom:loaded', function() {
 	
 	$('save_btn').observe('click', function() {
 		var id = $F('edit_id');
-		var display = $F('edit_display');
+		var display = $F('edit_display').escapeHTML();
 		
 		if (id && display) {
 			var isExists = buttons[id] ? true : false;

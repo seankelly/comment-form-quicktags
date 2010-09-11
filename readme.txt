@@ -29,8 +29,11 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 
 == Changelog ==
 
+= 1.2.4 =
+* Added escaping.
+
 = 1.2.3 =
-* Add French translations by Phenom.
+* Added French translations by Phenom.
 * Fixed admin CSS.
 * Fixed scripts for Mystique.
 * Fixed script and style loading.
