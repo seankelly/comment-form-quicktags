@@ -3,7 +3,7 @@ Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
 Tested up to: 3.0.1
-Stable tag: 1.2.4
+Stable tag: 1.3
 
 This plugin inserts a quicktag toolbar on the comment form.
 
@@ -28,6 +28,9 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 1. The admin page
 
 == Changelog ==
+
+= 1.3 =
+* Added comments-popup.php support.
 
 = 1.2.4 =
 * Added escaping.

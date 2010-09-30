@@ -3,7 +3,7 @@ Contributors: Regen
 Tags: quicktags, comments
 Requires at least: 2.6
 Tested up to: 3.0.1
-Stable tag: 1.2.4
+Stable tag: 1.3
 
 このプラグインはクイックタグをコメントフォームに追加します。
 
@@ -28,6 +28,9 @@ Stable tag: 1.2.4
 2. 管理画面
 
 == 変更履歴 ==
+
+= 1.3 =
+* comments-popup.phpに対応
 
 = 1.2.4 =
 * エスケープ処理を追加
