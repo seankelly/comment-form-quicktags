@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags in italiano\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-08-13 22:33+0900\n"
+"POT-Creation-Date: 2010-09-30 19:11+0900\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Gianni Diurno (aka gidibao) <gidibao@gmail.com>\n"
 "Language-Team: Gianni Diurno | http://gidibao.net/ <gidibao@gmail.com>\n"
@@ -15,123 +15,123 @@ msgstr ""
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-SearchPath-0: \n"
 
-#: comment-form-quicktags.php:211 comment-form-quicktags.php:354
+#: comment-form-quicktags.php:226 comment-form-quicktags.php:386
 msgid "Comment Form Quicktags Options"
 msgstr "Opzioni Comment Form Quicktags"
 
-#: comment-form-quicktags.php:211
+#: comment-form-quicktags.php:226
 msgid "Comment Form Quicktags"
 msgstr "Comment Form Quicktags"
 
-#: comment-form-quicktags.php:224
+#: comment-form-quicktags.php:239
 msgid "Are you sure?"
 msgstr "Ne sei certo?"
 
-#: comment-form-quicktags.php:245
+#: comment-form-quicktags.php:260
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: comment-form-quicktags.php:329 comment-form-quicktags.php:339
+#: comment-form-quicktags.php:361 comment-form-quicktags.php:371
 msgid "Options saved."
 msgstr "Le opzioni sono state salvate."
 
-#: comment-form-quicktags.php:347
+#: comment-form-quicktags.php:379
 msgid "Options removed."
 msgstr "Le opzioni sono state rimosse."
 
-#: comment-form-quicktags.php:355
+#: comment-form-quicktags.php:387
 msgid "Javascript is needed! "
 msgstr "E' necessario il Javascript! "
 
-#: comment-form-quicktags.php:357
+#: comment-form-quicktags.php:389
 msgid "Tag Options"
 msgstr "Opzioni tag"
 
-#: comment-form-quicktags.php:359
+#: comment-form-quicktags.php:391
 msgid "Click a tag which you want to edit or input ID which you want to add."
 msgstr "Clicca il tag che desideri modificare oppure inserisci l'ID che vuoi aggiungere."
 
-#: comment-form-quicktags.php:360
+#: comment-form-quicktags.php:392
 msgid "Edit other field."
 msgstr "Modifica altri campi."
 
-#: comment-form-quicktags.php:361
+#: comment-form-quicktags.php:393
 msgid "Click Edit/Add button."
 msgstr "Clicca il pulsante Modifica/Aggiungi."
 
-#: comment-form-quicktags.php:362
+#: comment-form-quicktags.php:394
 msgid "Sort tags by dragging."
 msgstr "Trascina i tag per spostarli."
 
-#: comment-form-quicktags.php:363
+#: comment-form-quicktags.php:395
 msgid "After that, click Update Tags button to save."
 msgstr "Quindi, clicca il pulsante Aggiorna Tag e salva."
 
-#: comment-form-quicktags.php:365
+#: comment-form-quicktags.php:397
 #, php-format
 msgid "<strong>[Info]</strong> Allowed tags in comments: <code class=\"tags\">%s</code>."
 msgstr "<strong>[Info]</strong> Tag permessi nei commneti: <code class=\"tags\">%s</code>."
 
-#: comment-form-quicktags.php:366
+#: comment-form-quicktags.php:398
 msgid "<strong>[Note]</strong> There are special IDs: ed_link, ed_img and ed_close."
 msgstr "<strong>[Note]</strong> Sono presenti dei tag speciali: ed_link, ed_img e ed_close."
 
-#: comment-form-quicktags.php:384
+#: comment-form-quicktags.php:416
 msgid "ID<span>*</span>"
 msgstr "ID<span>*</span>"
 
-#: comment-form-quicktags.php:387
+#: comment-form-quicktags.php:419
 msgid "Display<span>*</span>"
 msgstr "Mostra<span>*</span>"
 
-#: comment-form-quicktags.php:390
+#: comment-form-quicktags.php:422
 msgid "Start tag"
 msgstr "Tag di inizio"
 
-#: comment-form-quicktags.php:393
+#: comment-form-quicktags.php:425
 msgid "End tag"
 msgstr "Tag di chiusura"
 
-#: comment-form-quicktags.php:396
+#: comment-form-quicktags.php:428
 msgid "Access key"
 msgstr "Chiave di accesso"
 
-#: comment-form-quicktags.php:401
+#: comment-form-quicktags.php:433
 msgid "Edit/Add"
 msgstr "Modifica/Aggiungi"
 
-#: comment-form-quicktags.php:402
+#: comment-form-quicktags.php:434
 msgid "Delete"
 msgstr "Cancella"
 
-#: comment-form-quicktags.php:403
+#: comment-form-quicktags.php:435
 msgid "Clear fields"
 msgstr "Svuota i campi"
 
-#: comment-form-quicktags.php:412
+#: comment-form-quicktags.php:444
 msgid "Update Tags"
 msgstr "Aggiorna Tag"
 
-#: comment-form-quicktags.php:416
+#: comment-form-quicktags.php:448
 msgid "Role limitation"
 msgstr "Limitazione ruolo"
 
-#: comment-form-quicktags.php:419
+#: comment-form-quicktags.php:451
 msgid "Use role limitation"
 msgstr "Utilizza la restrizione"
 
-#: comment-form-quicktags.php:422
+#: comment-form-quicktags.php:454
 msgid "Select the roles that can use quicktags."
 msgstr "Seleziona i ruoli che possono utilizzare i quicktags."
 
-#: comment-form-quicktags.php:434
+#: comment-form-quicktags.php:466
 msgid "Update roles"
 msgstr "Aggiorna i ruoli"
 
-#: comment-form-quicktags.php:438 comment-form-quicktags.php:443
+#: comment-form-quicktags.php:470 comment-form-quicktags.php:475
 msgid "Remove options"
 msgstr "Rimuovi le opzioni"
 
-#: comment-form-quicktags.php:439
+#: comment-form-quicktags.php:471
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr "Puoi rimuovere dal database le opzioni qui sopra. Tutte le impostazioni saranno riportate alle predefinite."

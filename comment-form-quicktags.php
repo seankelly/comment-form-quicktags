@@ -179,11 +179,26 @@ class CommentFormQuicktags {
 	 * Set WP hooks.
 	 */
 	function set_hooks() {
-		wp_register_style('cfq', $this->plugin_url . '/style.css');
+		wp_register_script('cfq', $this->plugin_url . '/quicktags.php', array(), date('Ymd', $this->options['modified']));
+		wp_register_style('cfq', $this->plugin_url . '/style.css', array(), date('Ymd', filemtime(dirname(__FILE__) . '/style.css')));
 		add_action('wp_print_scripts', array(&$this, 'add_scripts'));
 		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 		add_filter('comments_template', array(&$this, 'detect_start'));
+		
+		// for comments-popup.php
+		if (isset($_GET['comments_popup'])) {
+			wp_enqueue_script('cfq');
+			wp_enqueue_style('cfq');
+			$this->detect_start();
+		}
+	}
+	
+	/**
+	 * Check capabilities.
+	 */
+	function can_quicktag() {
+		return !$this->options['cap_check'] || ($this->options['cap_check'] && current_user_can($this->cap));
 	}
 	
 	/**
@@ -191,7 +206,7 @@ class CommentFormQuicktags {
 	 */
 	function add_scripts() {
 		if (is_singular()) {
-			wp_enqueue_script('cfq', $this->plugin_url . '/quicktags.php', array(), date('Ymd', $this->options['modified']));
+			wp_enqueue_script('cfq');
 		}
 	}
 	
@@ -252,7 +267,7 @@ class CommentFormQuicktags {
 	 * Start to detect <textarea>.
 	 */
 	function detect_start($file) {
-		if (!$this->options['cap_check'] || ($this->options['cap_check'] && current_user_can($this->cap))) {
+		if ($this->can_quicktag()) {
 			ob_start(array(&$this, 'add_tags'));
 			$this->ended = false;
 			add_action('comment_form', array(&$this, 'detect_end'));
@@ -278,11 +293,28 @@ class CommentFormQuicktags {
 	 * @return string
 	 */
 	function add_tags($content) {
+		// for comments-popup.php
+		if (isset($_GET['comments_popup'])) {
+			global $wp_scripts, $wp_styles;
+			
+			$scripts = '';
+			
+			$wp_scripts->do_concat = true;
+			$wp_scripts->do_items();
+			$scripts .= $wp_scripts->print_html;
+			
+			$wp_styles->do_concat = true;
+			$wp_styles->do_items();
+			$scripts .= $wp_styles->print_html;
+			
+			$content = preg_replace('%</head>%', $scripts . '\\0', $content);
+		}
+		
 		$toolbar = '<script type="text/javascript">var edInserted; if (!edInserted) {edToolbar(); edInserted = true;}</script>';
-		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\2\');</script>';
+		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\1\');</script>';
 		$content = preg_replace(
-			'%<textarea(.*)id="([^"]*)"(.*)>(.*)</textarea>%U',
-			$toolbar . "\n" . '<textarea\\1id="\\2"\\3>\\4</textarea>' . "\n" . $activate,
+			'%<textarea.*id="([^"]*)".*>.*</textarea>%U',
+			$toolbar . "\n" . '\\0' . "\n" . $activate,
 			$content
 		);
 		
