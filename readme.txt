@@ -29,6 +29,9 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 
 == Changelog ==
 
+= 1.3.1 =
+* Fixed warning message.
+
 = 1.3 =
 * Added comments-popup.php support.
 

@@ -266,7 +266,7 @@ class CommentFormQuicktags {
 	/**
 	 * Start to detect <textarea>.
 	 */
-	function detect_start($file) {
+	function detect_start($file = null) {
 		if ($this->can_quicktag()) {
 			ob_start(array(&$this, 'add_tags'));
 			$this->ended = false;

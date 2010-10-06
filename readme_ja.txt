@@ -29,6 +29,9 @@ Stable tag: 1.3
 
 == 変更履歴 ==
 
+= 1.3.1 =
+* Warningメッセージが出ないように修正
+
 = 1.3 =
 * comments-popup.phpに対応
 
