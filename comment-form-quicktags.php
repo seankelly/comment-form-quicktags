@@ -456,7 +456,7 @@ class CommentFormQuicktags {
 			foreach ($wp_roles->roles as $role => $data) {
 				$checked = isset($data['capabilities'][$this->cap]) && $data['capabilities'][$this->cap] ? 'checked="checked"' : '';
 				$disabled = $this->options['cap_check'] ? '' : 'disabled="disabled"';
-				printf('<label><input type="checkbox" name="role[]" value="%s" %s %s /> %s</label><br />', $role, $checked, $disabled, _c($data['name']));
+				printf('<label><input type="checkbox" name="role[]" value="%s" %s %s /> %s</label><br />', $role, $checked, $disabled, translate_user_role($data['name']));
 			}
 		?>
 	</p>
