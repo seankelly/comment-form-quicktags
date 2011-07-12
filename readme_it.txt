@@ -1,9 +1,9 @@
 === Comment Form Quicktags ===
 Sviluppatore: Regen
 Tags: quicktags, comments
-Versione minima WP: 2.6
-Compatibile sino alla: 3.0.1
-Versione stabile: 1.3.1
+Versione minima WP: 2.9
+Compatibile sino alla: 3.2
+Versione stabile: 1.3.2
 
 Questo plugin inserisce una barra di pulsanti quicktag nel modulo dei commenti.
 

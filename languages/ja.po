@@ -2,17 +2,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Comment Form Quicktags\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-09-30 19:11+0900\n"
+"POT-Creation-Date: 2011-07-12 16:50+0900\n"
 "PO-Revision-Date: \n"
-"Last-Translator: Regen <g(DOT)regen100(AT)gmail(DOT)com>\n"
+"Last-Translator: Regen <g.regen100<AT>gmail.com>\n"
 "Language-Team: \n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Language: Japanese\n"
 
-#: comment-form-quicktags.php:226 comment-form-quicktags.php:386
+#: comment-form-quicktags.php:226
+#: comment-form-quicktags.php:386
 msgid "Comment Form Quicktags Options"
 msgstr "Comment Form Quicktags オプション"
 
@@ -28,7 +30,8 @@ msgstr "よろしいですか？"
 msgid "Settings"
 msgstr "設定"
 
-#: comment-form-quicktags.php:361 comment-form-quicktags.php:371
+#: comment-form-quicktags.php:361
+#: comment-form-quicktags.php:371
 msgid "Options saved."
 msgstr "設定が保存されました。"
 
@@ -125,10 +128,12 @@ msgstr "クイックタグを使用できる権限を選んでください。"
 msgid "Update roles"
 msgstr "権限を更新"
 
-#: comment-form-quicktags.php:470 comment-form-quicktags.php:475
+#: comment-form-quicktags.php:470
+#: comment-form-quicktags.php:475
 msgid "Remove options"
 msgstr "オプションを削除"
 
 #: comment-form-quicktags.php:471
 msgid "You can remove the above options from the database. All the settings return to default."
 msgstr "上のオプションをデータベースから削除できます。全ての設定はデフォルトに戻ります。"
+
