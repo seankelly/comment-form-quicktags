@@ -29,6 +29,9 @@ This plugin inserts quicktags of the admin page to the upper part of textarea of
 
 == Changelog ==
 
+= 1.3.2 =
+* Fixed translations of roles.
+
 = 1.3.1 =
 * Fixed warning message.
 
