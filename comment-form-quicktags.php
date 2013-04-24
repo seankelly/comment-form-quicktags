@@ -40,12 +40,6 @@ class CommentFormQuicktags {
 	var $plugin_dir;
 
 	/**
-	 * Plugin URL.
-	 * @var string
-	 */
-	var $plugin_url;
-
-	/**
 	 * Option ID.
 	 * @var string
 	 */
@@ -79,11 +73,6 @@ class CommentFormQuicktags {
 		$this->option_name = $this->plugin_name . '-option';
 		$this->option_hook = 'cfq_option_page';
 		$this->cap = 'comment_form_quicktags';
-		if (defined('WP_PLUGIN_URL')) {
-			$this->plugin_url = WP_PLUGIN_URL . '/' . $this->plugin_name;
-		} else {
-			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/' . $this->plugin_name;
-		}
 
 		load_textdomain($this->domain, dirname(__FILE__) . '/languages/' . get_locale() . '.mo');
 
@@ -179,8 +168,8 @@ class CommentFormQuicktags {
 	 * Set WP hooks.
 	 */
 	function set_hooks() {
-		wp_register_script('cfq', $this->plugin_url . '/quicktags.php', array(), date('Ymd', $this->options['modified']));
-		wp_register_style('cfq', $this->plugin_url . '/style.css', array(), date('Ymd', filemtime(dirname(__FILE__) . '/style.css')));
+		wp_register_script('cfq', plugins_url('quicktags.php', __FILE__), array(), date('Ymd', $this->options['modified']));
+		wp_register_style('cfq', plugins_url('style.css', __FILE__), array(), date('Ymd', filemtime(dirname(__FILE__) . '/style.css')));
 		add_action('wp_print_scripts', array(&$this, 'add_scripts'));
 		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
@@ -246,7 +235,7 @@ class CommentFormQuicktags {
 
 	function add_admin_styles() {
 		wp_enqueue_style('cfq');
-		wp_enqueue_style('cfq-admin', $this->plugin_url . '/admin.css');
+		wp_enqueue_style('cfq-admin', plugins_url('admin.css', __FILE__));
 	}
 
 	/**
