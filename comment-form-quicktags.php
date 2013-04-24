@@ -84,9 +84,9 @@ class CommentFormQuicktags {
 		} else {
 			$this->plugin_url = get_option('siteurl') . '/' . PLUGINDIR . '/' . $this->plugin_name;
 		}
-		
+
 		load_textdomain($this->domain, dirname(__FILE__) . '/languages/' . get_locale() . '.mo');
-		
+
 		$this->get_option();
 		$this->set_hooks();
 	}
@@ -96,7 +96,7 @@ class CommentFormQuicktags {
 	 */
 	function get_option() {
 		$this->options = (array)get_option($this->option_name);
-		
+
 		$this->options += array(
 			'tags' => array(
 				'strong' => array(
@@ -145,7 +145,7 @@ class CommentFormQuicktags {
 			'modified' => filemtime(__FILE__),
 			'cap_check' => false
 		);
-		
+
 		if ($this->options['modified'] < filemtime(__FILE__)) {
 			$this->options['modified'] = filemtime(__FILE__);
 		}
@@ -185,7 +185,7 @@ class CommentFormQuicktags {
 		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
 		add_filter('comments_template', array(&$this, 'detect_start'));
-		
+
 		// for comments-popup.php
 		if (isset($_GET['comments_popup'])) {
 			wp_enqueue_script('cfq');
@@ -193,14 +193,14 @@ class CommentFormQuicktags {
 			$this->detect_start();
 		}
 	}
-	
+
 	/**
 	 * Check capabilities.
 	 */
 	function can_quicktag() {
 		return !$this->options['cap_check'] || ($this->options['cap_check'] && current_user_can($this->cap));
 	}
-	
+
 	/**
 	 * Add scripts.
 	 */
@@ -209,7 +209,7 @@ class CommentFormQuicktags {
 			wp_enqueue_script('cfq');
 		}
 	}
-	
+
 	/**
 	 * Add styles.
 	 */
@@ -224,7 +224,7 @@ class CommentFormQuicktags {
 	 */
 	function set_admin_hooks() {
 		$page = add_options_page(__('Comment Form Quicktags Options', $this->domain), __('Comment Form Quicktags', $this->domain), 8, $this->option_hook, array(&$this, 'options_page'));
-		
+
 		add_filter('plugin_action_links', array(&$this, 'add_action_links'), 10, 2);
 		add_action('admin_print_scripts-' . $page, array(&$this, 'add_admin_scripts'));
 		add_action('admin_print_styles-' . $page, array(&$this, 'add_admin_styles'));
@@ -243,7 +243,7 @@ class CommentFormQuicktags {
 	/**
 	 * Add styles to admin header.
 	 */
-	 
+
 	function add_admin_styles() {
 		wp_enqueue_style('cfq');
 		wp_enqueue_style('cfq-admin', $this->plugin_url . '/admin.css');
@@ -273,7 +273,7 @@ class CommentFormQuicktags {
 			add_action('comment_form', array(&$this, 'detect_end'));
 			add_action('wp_footer', array(&$this, 'detect_end'));
 		}
-		
+
 		return $file;
 	}
 
@@ -296,20 +296,20 @@ class CommentFormQuicktags {
 		// for comments-popup.php
 		if (isset($_GET['comments_popup'])) {
 			global $wp_scripts, $wp_styles;
-			
+
 			$scripts = '';
-			
+
 			$wp_scripts->do_concat = true;
 			$wp_scripts->do_items();
 			$scripts .= $wp_scripts->print_html;
-			
+
 			$wp_styles->do_concat = true;
 			$wp_styles->do_items();
 			$scripts .= $wp_styles->print_html;
-			
+
 			$content = preg_replace('%</head>%', $scripts . '\\0', $content);
 		}
-		
+
 		$toolbar = '<script type="text/javascript">var edInserted; if (!edInserted) {edToolbar(); edInserted = true;}</script>';
 		$activate = '<script type="text/javascript">var edCanvas = document.getElementById(\'\\1\');</script>';
 		$content = preg_replace(
@@ -317,7 +317,7 @@ class CommentFormQuicktags {
 			$toolbar . "\n" . '\\0' . "\n" . $activate,
 			$content
 		);
-		
+
 		return $content;
 	}
 
@@ -343,19 +343,19 @@ class CommentFormQuicktags {
 	function options_page() {
 		global $wp_roles;
 		include 'json.php';
-		
+
 		if (isset($_POST['action'])) {
 			switch ($_POST['action']) {
 				case 'update':
 					parse_str($_POST['sort'], $buf);
 					$sort = $buf['ed_toolbar'];
-					
+
 					$tags = json_decode(stripslashes($_POST['tags']));
 					$this->options['tags'] = array();
 					foreach ($sort as $id) {
 						$this->options['tags'][$id] = (array)$tags->$id;
 					}
-					
+
 					$this->options['modified'] = time();
 					$this->update_option();
 					echo '<div class="updated fade"><p><strong>' . __('Options saved.', $this->domain) . '</strong></p></div>';
@@ -460,7 +460,7 @@ class CommentFormQuicktags {
 			}
 		?>
 	</p>
-	
+
 	<p class="submit">
 		<input type="hidden" name="action" value="rolelimit" />
 		<input type="submit" class="button-primary" value="<?php _e('Update roles', $this->domain) ?>" />
