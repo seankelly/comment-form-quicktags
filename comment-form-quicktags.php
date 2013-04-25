@@ -34,12 +34,6 @@ class CommentFormQuicktags {
 	var $plugin_name;
 
 	/**
-	 * Plugin path.
-	 * @var string
-	 */
-	var $plugin_dir;
-
-	/**
 	 * Option ID.
 	 * @var string
 	 */
@@ -69,7 +63,6 @@ class CommentFormQuicktags {
 	function CommentFormQuicktags() {
 		$this->domain = 'comment-form-quicktags';
 		$this->plugin_name = 'comment-form-quicktags';
-		$this->plugin_dir = '/' . PLUGINDIR . '/' . $this->plugin_name;
 		$this->option_name = $this->plugin_name . '-option';
 		$this->option_hook = 'cfq_option_page';
 		$this->cap = 'comment_form_quicktags';
@@ -223,7 +216,7 @@ class CommentFormQuicktags {
 	 * Add scripts to admin header.
 	 */
 	function add_admin_scripts() {
-		wp_enqueue_script('cfq-admin', $this->plugin_dir . '/admin.js',  array('scriptaculous-dragdrop', 'scriptaculous-effects'));
+		wp_enqueue_script('cfq-admin', plugins_url('admin.js', __FILE__),  array('scriptaculous-dragdrop', 'scriptaculous-effects'));
 		wp_localize_script('cfq-admin', 'cfqadminL10n', array(
 			'removeConfirm' => __('Are you sure?', $this->domain)
 		));
