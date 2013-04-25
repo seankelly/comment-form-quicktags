@@ -89,7 +89,7 @@ document.observe('dom:loaded', function() {
 
 	$('sform').observe('submit', function(){
 		$('sort').value = Sortable.serialize('ed_toolbar', {tag: 'span'});
-		$('tags').value = $H(buttons).toJSON();
+		$('tags').value = JSON.stringify(buttons);
 	});
 
 	$('cap_check').observe('change', function(){
