@@ -4,17 +4,17 @@ document.observe('dom:loaded', function() {
 			element.disabled = !($F('edit_id') && $F('edit_display'));
 		});
 		if ($H(buttons).keys().length <= 1) $('del_btn').disable();
-		
+
 		var i = false;
 		$$('#att input[type=text]').each(function(element) {i = i || $F(element)});
 		if (i) $('clear_btn').enable(); else $('clear_btn').disable();
 	}
-	
+
 	function select(element) {
 		$$('#ed_toolbar span').invoke('removeClassName', 'selected');
 		element.addClassName('selected');
 	}
-	
+
 	function updateFunc(event) {
 		var element = Event.element(event);
 		var id = element.identify().substr(3);
@@ -26,7 +26,7 @@ document.observe('dom:loaded', function() {
 		select(element);
 		toggleBtn();
 	}
-	
+
 	function beSortable() {
 		Sortable.create('ed_toolbar', {
 			tag: 'span',
@@ -36,14 +36,14 @@ document.observe('dom:loaded', function() {
 		toggleBtn();
 	}
 	beSortable();
-	
+
 	$$('#ed_toolbar span').invoke('observe', 'click', updateFunc);
 	new Form.Observer('att', 0.5, toggleBtn);
-	
+
 	$('save_btn').observe('click', function() {
 		var id = $F('edit_id');
 		var display = $F('edit_display').escapeHTML();
-		
+
 		if (id && display) {
 			var isExists = buttons[id] ? true : false;
 			buttons[id] = {};
@@ -51,7 +51,7 @@ document.observe('dom:loaded', function() {
 			buttons[id].start = $F('edit_start');
 			buttons[id].end = $F('edit_end');
 			buttons[id].access = $F('edit_access');
-			
+
 			if (isExists) {
 				$('ed_'+id).update(display);
 			} else {
@@ -63,12 +63,12 @@ document.observe('dom:loaded', function() {
 			}
 		}
 	});
-	
+
 	$('del_btn').observe('click', function() {
 		if ($H(buttons).keys().length == 1) return;
-		
+
 		var id = $F('edit_id');
-		
+
 		if (id && buttons[id]) {
 			delete buttons[id];
 			$('ed_'+id).fade({
@@ -81,21 +81,21 @@ document.observe('dom:loaded', function() {
 			});
 		}
 	});
-	
+
 	$('clear_btn').observe('click', function(){
 		$$('#att input[type=text]').invoke('clear');
 		toggleBtn();
 	});
-	
+
 	$('sform').observe('submit', function(){
 		$('sort').value = Sortable.serialize('ed_toolbar', {tag: 'span'});
 		$('tags').value = $H(buttons).toJSON();
 	});
-	
+
 	$('cap_check').observe('change', function(){
 		$$('#roles input[type=checkbox]').invoke(this.checked ? 'enable' : 'disable');
 	});
-	
+
 	$('rform').observe('submit', function(event){
 		if (!confirm(cfqadminL10n['removeConfirm'])) {
 			Event.stop(event);
