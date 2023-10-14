@@ -468,4 +468,4 @@ class CommentFormQuicktags {
 /**
  * CommentFormQuicktags class instance.
  */
-$comment_form_quicktags = &new CommentFormQuicktags();
+$comment_form_quicktags = new CommentFormQuicktags();
