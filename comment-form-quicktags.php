@@ -60,7 +60,7 @@ class CommentFormQuicktags {
 	/**
 	 * Initialize CommentFormQuicktags.
 	 */
-	function CommentFormQuicktags() {
+	function __construct() {
 		$this->domain = 'comment-form-quicktags';
 		$this->plugin_name = 'comment-form-quicktags';
 		$this->option_name = $this->plugin_name . '-option';
