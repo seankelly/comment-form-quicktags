@@ -58,6 +58,12 @@ class CommentFormQuicktags {
 	var $cap;
 
 	/**
+	 * Detection of start and end of textarea.
+	 * @var boolean
+	 */
+	var $ended;
+
+	/**
 	 * Initialize CommentFormQuicktags.
 	 */
 	function __construct() {
