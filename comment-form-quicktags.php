@@ -330,7 +330,6 @@ class CommentFormQuicktags {
 	 */
 	function options_page() {
 		global $wp_roles;
-		include 'json.php';
 
 		if (isset($_POST['action'])) {
 			switch ($_POST['action']) {
