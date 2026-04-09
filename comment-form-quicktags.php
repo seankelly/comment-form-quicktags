@@ -211,7 +211,7 @@ class CommentFormQuicktags {
 	 * Set WP hooks for admin.
 	 */
 	function set_admin_hooks() {
-		$page = add_options_page(__('Comment Form Quicktags Options', $this->domain), __('Comment Form Quicktags', $this->domain), 8, $this->option_hook, array(&$this, 'options_page'));
+		$page = add_options_page(__('Comment Form Quicktags Options', $this->domain), __('Comment Form Quicktags', $this->domain), 'manage_options', $this->option_hook, array(&$this, 'options_page'));
 
 		add_filter('plugin_action_links', array(&$this, 'add_action_links'), 10, 2);
 		add_action('admin_print_scripts-' . $page, array(&$this, 'add_admin_scripts'));
