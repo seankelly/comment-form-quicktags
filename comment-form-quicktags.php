@@ -167,8 +167,7 @@ class CommentFormQuicktags {
 	 * Set WP hooks.
 	 */
 	function set_hooks() {
-		wp_register_script('cfq', plugins_url('quicktags.php', __FILE__), array(), date('Ymd', $this->options['modified']));
-		wp_register_style('cfq', plugins_url('style.css', __FILE__), array(), date('Ymd', filemtime(dirname(__FILE__) . '/style.css')));
+		add_action('wp_enqueue_scripts', array($this, 'enqueue_scripts'));
 		add_action('wp_print_scripts', array(&$this, 'add_scripts'));
 		add_action('wp_print_styles', array(&$this, 'add_styles'));
 		add_action('admin_menu', array(&$this, 'set_admin_hooks'));
@@ -187,6 +186,11 @@ class CommentFormQuicktags {
 	 */
 	function can_quicktag() {
 		return !$this->options['cap_check'] || ($this->options['cap_check'] && current_user_can($this->cap));
+	}
+
+	function enqueue_scripts() {
+		wp_register_script('cfq', plugins_url('quicktags.php', __FILE__), array(), date('Ymd', $this->options['modified']));
+		wp_register_style('cfq', plugins_url('style.css', __FILE__), array(), date('Ymd', filemtime(dirname(__FILE__) . '/style.css')));
 	}
 
 	/**
